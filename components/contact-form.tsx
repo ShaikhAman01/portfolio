@@ -8,7 +8,7 @@ export function ContactForm() {
 
   return (
     <form
-      className="border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 shadow-[6px_6px_0_rgba(0,0,0,0.08)] dark:border-[var(--outline-variant)] dark:bg-[var(--surface-container-lowest)]"
+      className="border border-zinc-300 bg-white p-6 shadow-[6px_6px_0_rgba(0,0,0,0.08)] dark:border-zinc-800 dark:bg-zinc-950"
       onSubmit={(event) => {
         event.preventDefault();
         setSent(true);

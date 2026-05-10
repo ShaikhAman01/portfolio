@@ -8,11 +8,22 @@ export function Footer() {
         <Link href="/" className="text-2xl text-black dark:text-white">
           {profile.brand}
         </Link>
-        <p>©2026 @{profile.handle}. ALL SYSTEMS GREEN.</p>
+        
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
+          <p>©2026 @{profile.handle}.</p>
+          <div className="flex items-center gap-3 text-sm font-black tracking-[0.18em]">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+            </span>
+            <span>SYS_UPTIME: <span className="text-[var(--on-surface)]">99.9%</span></span>
+          </div>
+        </div>
+
         <div className="flex gap-8">
-          <a href={profile.github} target="_blank" rel="noreferrer">GITHUB</a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer">LINKEDIN</a>
-          <a href={profile.x} target="_blank" rel="noreferrer">X</a>
+          <a href={profile.github} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">GITHUB</a>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">LINKEDIN</a>
+          <a href={profile.x} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">X</a>
         </div>
       </div>
     </footer>

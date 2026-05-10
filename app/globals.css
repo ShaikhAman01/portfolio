@@ -74,3 +74,34 @@ button {
   }
 }
 
+/* 1. Terminal Text Selection */
+::selection {
+  background: var(--code-string);
+  color: var(--surface-container-lowest);
+}
+
+::-moz-selection {
+  background: var(--code-string);
+  color: var(--surface-container-lowest);
+}
+
+/* 2. CRT Scanline Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Uses the outline-variant color but drops opacity so it's barely there */
+  background: repeating-linear-gradient(
+    0deg,
+    var(--outline-variant),
+    var(--outline-variant) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  opacity: 0.15; /* Adjust this if you want it more/less visible */
+  pointer-events: none; /* Ensures it doesn't block clicks */
+  z-index: 9999;
+}
