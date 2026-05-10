@@ -8,9 +8,9 @@ import { heroStack, history, profile, projects, skills } from "@/lib/data";
 
 export default function Home() {
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="bg-[var(--bg)] text-[var(--on-surface)]">
+      <main className="mx-auto w-full max-w-[1680px] flex-1 bg-[var(--bg)] text-[var(--on-surface)] lg:w-[67%]">
         <section className="mx-auto max-w-[1680px] px-5 py-12 md:px-8 md:py-24">
           <Reveal>
             <div className="border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-7 shadow-[8px_8px_0_rgba(0,0,0,0.08)] dark:border-[var(--outline-variant)] dark:bg-[var(--surface-container-lowest)] md:p-16">
@@ -124,6 +124,6 @@ export default function Home() {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

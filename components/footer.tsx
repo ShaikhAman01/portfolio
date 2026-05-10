@@ -3,8 +3,8 @@ import { profile } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--outline-variant)] py-10 dark:border-[var(--outline-variant)]">
-      <div className="mx-auto flex max-w-[1680px] flex-col gap-6 px-5 text-lg font-black tracking-[0.12em] text-[var(--outline)] dark:text-[var(--on-surface-variant)] md:flex-row md:items-center md:justify-between md:px-8">
+    <footer className="w-full border-t border-[var(--outline-variant)] py-10 dark:border-[var(--outline-variant)]">
+      <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-6 px-5 text-lg font-black tracking-[0.12em] text-[var(--outline)] dark:text-[var(--on-surface-variant)] md:flex-row md:items-center md:justify-between md:px-8 lg:w-[67%]">
         <Link href="/" className="text-2xl text-black dark:text-white">
           {profile.brand}
         </Link>

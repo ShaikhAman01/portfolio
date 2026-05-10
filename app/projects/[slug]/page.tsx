@@ -20,9 +20,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   }
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Header active="Projects" />
-      <main className="bg-zinc-100 text-zinc-950 dark:bg-black dark:text-zinc-50">
+      <main className="mx-auto w-full max-w-[1680px] flex-1 bg-zinc-100 text-zinc-950 dark:bg-black dark:text-zinc-50 lg:w-[67%]">
         <section className="mx-auto grid max-w-[1680px] gap-12 px-5 pb-16 pt-24 md:px-8 md:pb-24 md:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <div className="mb-8 flex flex-wrap items-center gap-4">
@@ -112,6 +112,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
