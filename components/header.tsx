@@ -12,7 +12,7 @@ const nav = [
 export function Header({ active = "" }: { active?: string }) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[var(--outline-variant)] bg-[rgba(248,249,250,0.95)] backdrop-blur dark:border-[var(--outline-variant)] dark:bg-[rgba(5,5,5,0.95)]">
-      <div className="mx-auto flex w-full max-w-[1680px] items-center justify-between gap-6 px-5 py-4 md:px-8 lg:w-[67%]">
+      <div className="mx-auto flex w-full max-w-[105rem] items-center justify-between gap-6 px-5 py-4 md:px-8">
         <Link href="/" className="text-2xl font-black tracking-tight md:text-4xl">
           {profile.brand}
         </Link>

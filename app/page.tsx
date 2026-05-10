@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="mx-auto w-full max-w-[1680px] flex-1 bg-[var(--bg)] text-[var(--on-surface)] lg:w-[67%]">
-        <section className="mx-auto max-w-[1680px] px-5 py-12 md:px-8 md:py-24">
+      <main className="flex-1 bg-[var(--bg)] text-[var(--on-surface)]">
+        <section className="mx-auto max-w-[105rem] px-5 py-12 md:px-8 md:py-24">
           <Reveal>
             <div className="border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-7 shadow-[8px_8px_0_rgba(0,0,0,0.08)] dark:border-[var(--outline-variant)] dark:bg-[var(--surface-container-lowest)] md:p-16">
               <div className="mb-16 flex gap-3">
@@ -59,7 +59,7 @@ export default function Home() {
           </Reveal>
         </section>
 
-        <section id="projects" className="mx-auto max-w-[1680px] px-5 py-16 md:px-8">
+        <section id="projects" className="mx-auto max-w-[105rem] px-5 py-16 md:px-8">
           <SectionTitle icon="▰">/DEV/PROJECTS</SectionTitle>
           <div className="grid gap-8 lg:grid-cols-2">
             {projects.map((project, index) => (
@@ -68,7 +68,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="mx-auto max-w-[1680px] px-5 py-16 md:px-8">
+        <section id="skills" className="mx-auto max-w-[105rem] px-5 py-16 md:px-8">
           <SectionTitle icon="▥">/BIN/SKILLS</SectionTitle>
           <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-4">
             {skills.map(([label, value], index) => (
@@ -82,7 +82,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="history" className="mx-auto max-w-[1680px] px-5 py-16 md:px-8">
+        <section id="history" className="mx-auto max-w-[105rem] px-5 py-16 md:px-8">
           <SectionTitle icon="↺">/VAR/LOG/HISTORY</SectionTitle>
           <div className="space-y-0 border-l-4 border-[var(--outline)] dark:border-[var(--outline-variant)]">
             {history.map((item, index) => (
@@ -107,7 +107,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="mx-auto grid max-w-[1680px] gap-10 px-5 py-20 md:px-8 lg:grid-cols-2">
+        <section id="contact" className="mx-auto grid max-w-[105rem] gap-10 px-5 py-20 md:px-8 lg:grid-cols-2">
           <Reveal>
             <SectionTitle icon="@">/DEV/NULL/CONTACT</SectionTitle>
             <p className="max-w-3xl text-2xl leading-10 text-zinc-600 dark:text-zinc-300">

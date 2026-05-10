@@ -22,8 +22,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <div className="flex min-h-screen flex-col">
       <Header active="Projects" />
-      <main className="mx-auto w-full max-w-[1680px] flex-1 bg-zinc-100 text-zinc-950 dark:bg-black dark:text-zinc-50 lg:w-[67%]">
-        <section className="mx-auto grid max-w-[1680px] gap-12 px-5 pb-16 pt-24 md:px-8 md:pb-24 md:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <main className="flex-1 bg-zinc-100 text-zinc-950 dark:bg-black dark:text-zinc-50">
+        <section className="mx-auto grid max-w-[105rem] gap-12 px-5 pb-16 pt-24 md:px-8 md:pb-24 md:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <div className="mb-8 flex flex-wrap items-center gap-4">
               <span className="bg-black px-5 py-3 text-lg font-bold tracking-[0.16em] text-white dark:bg-white dark:text-black">VERSION {project.version.replace("v", "")}</span>
@@ -48,7 +48,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </Reveal>
         </section>
 
-        <section className="mx-auto grid max-w-[1680px] gap-6 px-5 py-8 md:grid-cols-2 md:px-8 xl:grid-cols-4">
+        <section className="mx-auto grid max-w-[105rem] gap-6 px-5 py-8 md:grid-cols-2 md:px-8 xl:grid-cols-4">
           {project.metrics.map(([label, value], index) => (
             <Reveal key={label} delay={index * 0.05}>
               <div className="min-w-0 border border-zinc-300 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950">
@@ -59,7 +59,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           ))}
         </section>
 
-        <section id="docs" className="mx-auto grid max-w-[1680px] gap-12 px-5 py-20 md:px-8 lg:grid-cols-[1.3fr_0.7fr]">
+        <section id="docs" className="mx-auto grid max-w-[105rem] gap-12 px-5 py-20 md:px-8 lg:grid-cols-[1.3fr_0.7fr]">
           <div>
             <Reveal>
               <SectionTitle icon="ⓘ">ABOUT_THE_PROJECT</SectionTitle>
@@ -96,7 +96,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </aside>
         </section>
 
-        <section className="mx-auto max-w-[1680px] px-5 py-20 md:px-8">
+        <section className="mx-auto max-w-[105rem] px-5 py-20 md:px-8">
           <Reveal>
             <div className="flex min-w-0 flex-col gap-8 border border-zinc-300 bg-white p-8 shadow-[8px_8px_0_rgba(0,0,0,0.08)] dark:border-zinc-800 dark:bg-zinc-950 md:flex-row md:items-center md:justify-between md:p-14">
               <div className="min-w-0">

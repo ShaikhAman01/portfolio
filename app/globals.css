@@ -68,3 +68,9 @@ button {
   font: inherit;
 }
 
+@media (min-width: 1024px) {
+  html {
+    font-size: 67%;
+  }
+}
+
