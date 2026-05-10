@@ -8,7 +8,7 @@ type Project = (typeof projects)[number];
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <Reveal delay={index * 0.08}>
-      <article className="group border border-zinc-300 bg-white shadow-[6px_6px_0_rgba(0,0,0,0.08)] transition hover:-translate-y-1 hover:border-black hover:shadow-[10px_10px_0_rgba(0,0,0,0.16)] dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-white">
+      <article className="group border border-black bg-[var(--surface-container-lowest)] shadow-[6px_6px_0_rgba(0,0,0,0.08)] transition duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:border-black hover:shadow-[10px_10px_0_rgba(0,0,0,0.16)] dark:border-white dark:bg-[var(--surface-container-lowest)] dark:hover:border-white">
         <Link href={`/projects/${project.slug}`} className="block">
           <div className="relative aspect-[1198/382] overflow-hidden border-b border-zinc-300 bg-zinc-200 grayscale dark:border-zinc-800 dark:bg-zinc-900 dark:grayscale-0">
             <Image

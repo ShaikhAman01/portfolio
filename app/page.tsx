@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="bg-zinc-100 text-zinc-950 dark:bg-black dark:text-zinc-50">
+      <main className="bg-[var(--bg)] text-[var(--on-surface)]">
         <section className="mx-auto max-w-[1680px] px-5 py-12 md:px-8 md:py-24">
           <Reveal>
-            <div className="border border-zinc-300 bg-white p-7 shadow-[8px_8px_0_rgba(0,0,0,0.08)] dark:border-zinc-800 dark:bg-zinc-950 md:p-16">
+            <div className="border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-7 shadow-[8px_8px_0_rgba(0,0,0,0.08)] dark:border-[var(--outline-variant)] dark:bg-[var(--surface-container-lowest)] md:p-16">
               <div className="mb-16 flex gap-3">
                 <span className="h-4 w-4 rounded-full bg-red-700" />
                 <span className="h-4 w-4 rounded-full bg-blue-300" />
@@ -47,10 +47,10 @@ export default function Home() {
                   {profile.heroDescription}
                 </p>
                 <div className="mt-12 flex flex-col gap-5 sm:flex-row">
-                  <a href="#contact" className="bg-black px-10 py-6 text-center text-lg font-black tracking-[0.14em] text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400">
+                  <a href="#contact" className="bg-black px-10 py-6 text-center text-lg font-black tracking-[0.14em] text-white transition hover:bg-[var(--on-surface-variant)] dark:bg-white dark:text-black dark:hover:bg-[var(--code-string)]">
                     INITIALIZE_CONTACT →
                   </a>
-                  <a href={profile.resumeUrl} className="border border-zinc-400 px-10 py-6 text-center text-lg font-black tracking-[0.14em] transition hover:border-black hover:bg-white dark:border-zinc-700 dark:hover:border-white dark:hover:bg-zinc-900">
+                  <a href={profile.resumeUrl} className="border border-black bg-[var(--surface-container-lowest)] px-10 py-6 text-center text-lg font-black tracking-[0.14em] text-black transition hover:border-black hover:bg-[var(--surface-container)] dark:border-white dark:bg-[var(--surface-container-lowest)] dark:text-white dark:hover:bg-[var(--surface-container)]">
                     DOWNLOAD_CV.PDF
                   </a>
                 </div>
@@ -73,8 +73,8 @@ export default function Home() {
           <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-4">
             {skills.map(([label, value], index) => (
               <Reveal key={`${label}-${value}`} delay={index * 0.025}>
-                <div className="border border-zinc-300 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950">
-                  <p className="mb-5 text-sm font-bold tracking-[0.18em] text-zinc-500">{label}</p>
+                <div className="border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-8 dark:border-[var(--outline-variant)] dark:bg-[var(--surface-container-lowest)]">
+                  <p className="mb-5 text-sm font-black tracking-[0.18em] text-[var(--outline)]">{label}</p>
                   <p className="text-3xl font-black">{value}</p>
                 </div>
               </Reveal>
@@ -84,10 +84,10 @@ export default function Home() {
 
         <section id="history" className="mx-auto max-w-[1680px] px-5 py-16 md:px-8">
           <SectionTitle icon="↺">/VAR/LOG/HISTORY</SectionTitle>
-          <div className="space-y-0 border-l-4 border-black dark:border-white">
+          <div className="space-y-0 border-l-4 border-[var(--outline)] dark:border-[var(--outline-variant)]">
             {history.map((item, index) => (
               <Reveal key={item.role} delay={index * 0.08}>
-                <article className="grid gap-4 border-l border-zinc-300 px-8 py-10 md:grid-cols-[1fr_auto] dark:border-zinc-800">
+                <article className="grid gap-4 border-l border-[var(--outline-variant)] px-8 py-10 md:grid-cols-[1fr_auto] dark:border-[var(--outline-variant)]">
                   <div>
                     <h3 className="text-3xl font-black tracking-[0.08em]">{item.role}</h3>
                     <p className="mt-3 text-xl font-black tracking-[0.12em] text-blue-700 dark:text-emerald-400">{item.org}</p>

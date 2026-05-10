@@ -23,7 +23,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="border border-zinc-400 px-5 py-3 text-sm font-bold tracking-[0.18em] transition hover:border-black hover:bg-black hover:text-white dark:border-zinc-700 dark:hover:border-white dark:hover:bg-white dark:hover:text-black md:text-base"
+      className="border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] px-5 py-3 text-sm font-black tracking-[0.18em] text-[var(--on-surface)] transition hover:border-black hover:bg-black hover:text-white dark:border-[var(--outline-variant)] dark:bg-[var(--surface-container-lowest)] dark:text-[var(--on-surface)] dark:hover:border-white dark:hover:bg-white dark:hover:text-black md:text-base"
       aria-label="Toggle color mode"
     >
       [MODE: <span className="text-blue-700 dark:text-emerald-400">{theme.toUpperCase()}</span>]

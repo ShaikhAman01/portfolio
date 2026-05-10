@@ -4,12 +4,42 @@
 
 :root {
   color-scheme: light;
-  background: #f3f4f6;
+  background: var(--bg, #f8f9fa);
+
+  --bg: #f8f9fa;
+  --surface: #f8f9fa;
+  --surface-container: #edeeef;
+  --surface-container-high: #e7e8e9;
+  --surface-container-low: #f3f4f5;
+  --surface-container-lowest: #ffffff;
+  --outline: #76777d;
+  --outline-variant: #c6c6cd;
+  --on-surface: #191c1d;
+  --on-surface-variant: #45464c;
+  --primary: #000000;
+  --code-keyword: #0058be;
+  --code-string: #009668;
+  --code-variable: #000000;
 }
 
 .dark {
   color-scheme: dark;
-  background: #050505;
+  background: var(--bg, #050505);
+
+  --bg: #050505;
+  --surface: #050505;
+  --surface-container: #0e0e0f;
+  --surface-container-high: #141416;
+  --surface-container-low: #0b0b0d;
+  --surface-container-lowest: #080809;
+  --outline: #5f5f66;
+  --outline-variant: #3f3f45;
+  --on-surface: #f7f7f8;
+  --on-surface-variant: #9ca3af;
+  --primary: #f8fafc;
+  --code-keyword: #38bdf8;
+  --code-string: #2dd4bf;
+  --code-variable: #f8fafc;
 }
 
 * {
@@ -24,14 +54,9 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: auto;
-  background: #f3f4f6;
-  color: #09090b;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-}
-
-.dark body {
-  background: #050505;
-  color: #fafafa;
+  background: var(--bg);
+  color: var(--on-surface);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 a {
