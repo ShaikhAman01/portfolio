@@ -22,6 +22,50 @@ export const heroStack = ["Next.js", "React", "Node.js", "PostgreSQL"];
 
 export const projects = [
   {
+    slug: "intelliquery",
+    title: "INTELLIQUERY",
+    version: "v1.0.0",
+    status: "AI_SQL_AGENT",
+    description:
+      "A split-architecture fullstack agentic engine that safely connects to relational databases to analyze schema topology trees and execute automated text-to-SQL workflows via conversational paths.",
+    longDescription:
+      "A secure, read-only multi-service platform using Next.js on the frontend and FastAPI on the backend. Managed via unified Vercel service structures, bypassing CORS, and providing live execution sandboxes.",
+    tags: ["NEXT.JS", "FASTAPI", "POSTGRESQL", "AI_AGENT"],
+    image: "/images/intelliquery.png",
+    darkImage: "/images/intelliquery.png",
+    heroImage: "/images/intelliquery.png",
+    heroDarkImage: "/images/intelliquery.png",
+    action: "VIEW_CASE_STUDY",
+    sourceUrl: "https://github.com/ShaikhAman01/Intelliquery",
+    liveUrl: "https://intelliquery.shaikhaman.dev", 
+    docsUrl: "#docs",
+    metrics: [
+      ["ROUTING", "VERCEL_SERVICE"],
+      ["BACKEND", "FASTAPI"],
+      ["FRONTEND", "NEXT.JS"],
+      ["ENGINE", "AGENTIC_AI"]
+    ],
+    stack: [
+      "APP:NEXT.JS",
+      "API:FASTAPI",
+      "DB:POSTGRESQL_NEON",
+      "AUTH:BETTER_AUTH",
+      "AI:OPENAI_LLM"
+    ],
+    about: [
+      "Intelliquery bridges structural database models with non-technical operations teams by executing safe, conversationally generated analytic read runs.",
+      "The architecture is mapped cleanly as a mono-repository split project, taking full advantage of Vercel’s multi-project services to run Next.js alongside asynchronous Python runtimes seamlessly."
+    ],
+    challenges: [
+      "Synchronizing continuous edge environment secrets with dynamic multi-service pipelines.",
+      "Parsing client-side search parameter extraction tokens across complex Next.js pre-rendering static server passes without raising CSR-bailout container faults."
+    ],
+    learnings: [
+      "Decoupling dynamic URL structures to use empty string origins allows multi-service modules to match host names implicitly across staging and production.",
+      "Isolating state tracking logic behind explicit parent routers ensures robust execution sequences."
+    ]
+  },
+  {
     slug: "inscribe",
     title: "INSCRIBE",
     version: "v1.0.0",
@@ -31,12 +75,13 @@ export const projects = [
     longDescription:
       "A production-style blogging platform with JWT authentication, Zod validation, optimized relational data modeling, and a serverless backend on Cloudflare Workers.",
     tags: ["TYPESCRIPT", "REACT", "CLOUDFLARE", "PRISMA"],
-    image: "/images/hyper-card.png",
-    darkImage: "/images/hyper-card.png",
-    heroImage: "/images/hyper-hero-light.png",
-    heroDarkImage: "/images/hyper-hero-dark.png",
+    image: "/images/inscribe.png",
+    darkImage: "/images/inscribe.png",
+    heroImage: "/images/inscribe.png",
+    heroDarkImage: "/images/inscribe.png",
     action: "VIEW_CASE_STUDY",
-    sourceUrl: "https://github.com/ShaikhAman01",
+    sourceUrl: "https://github.com/ShaikhAman01/inscribe",
+    liveUrl: "https://inscribe.shaikhaman.dev",
     docsUrl: "#docs",
     metrics: [
       ["INVALID_REQUESTS", "-35%"],
@@ -71,19 +116,20 @@ export const projects = [
   {
     slug: "quantum",
     title: "QUANTUM",
-    version: "v0.9.0",
+    version: "v1.0.0",
     status: "ECOMMERCE_APP",
     description:
       "A scalable e-commerce application with React, Firebase, Tailwind CSS, authentication, and an admin panel for CRUD operations.",
     longDescription:
       "A commerce platform focused on product management, authentication, and responsive shopping flows, with Firebase handling auth and data operations.",
     tags: ["REACT", "FIREBASE", "TAILWIND"],
-    image: "/images/neo-card.png",
-    darkImage: "/images/neo-card.png",
-    heroImage: "/images/neo-card.png",
-    heroDarkImage: "/images/neo-card.png",
+    image: "/images/quantum.png",
+    darkImage: "/images/quantum.png",
+    heroImage: "/images/quantum.png",
+    heroDarkImage: "/images/quantum.png",
     action: "EXPLORE_BUILD",
-    sourceUrl: "https://github.com/ShaikhAman01",
+    sourceUrl: "https://github.com/ShaikhAman01/Quantum-e-commerce",
+    liveUrl: "https://quantum.shaikhaman.dev",
     docsUrl: "#docs",
     metrics: [
       ["ADMIN_PANEL", "CRUD"],
@@ -107,45 +153,45 @@ export const projects = [
       "Tailwind makes repeated commerce layouts easier to tune once spacing rules are consistent."
     ]
   },
-  {
-    slug: "flashpay",
-    title: "FLASHPAY",
-    version: "v0.8.0",
-    status: "PAYMENT_APP",
-    description:
-      "A secure payment application using React and Node.js with real-time transaction handling, validation, and resilient error states.",
-    longDescription:
-      "A payment application prototype focused on secure flows, real-time transaction updates, and validation-driven reliability across transfer operations.",
-    tags: ["REACT", "NODE.JS", "REALTIME"],
-    image: "/images/hyper-card.png",
-    darkImage: "/images/hyper-card.png",
-    heroImage: "/images/hyper-hero-light.png",
-    heroDarkImage: "/images/hyper-hero-dark.png",
-    action: "VIEW_FLOW",
-    sourceUrl: "https://github.com/ShaikhAman01",
-    docsUrl: "#docs",
-    metrics: [
-      ["FAILED_TXNS", "-20%"],
-      ["BACKEND", "NODE.JS"],
-      ["UPDATES", "REALTIME"],
-      ["VALIDATION", "ENFORCED"]
-    ],
-    stack: ["APP:REACT", "API:NODE.JS", "REALTIME:WEBSOCKETS", "VALIDATION:ZOD", "STATE:TRANSACTIONS"],
-    about: [
-      "FlashPay is a secure payment application prototype built to handle transaction flows with strong validation and clear error recovery.",
-      "The project emphasizes real-time feedback, backend validation, and defensive UI states so users understand what is happening during transfers."
-    ],
-    challenges: [
-      "Representing transaction states clearly while the backend processes updates.",
-      "Reducing failed transactions through stronger validation and predictable error messages.",
-      "Separating UI concerns from payment-flow logic so the codebase remains maintainable."
-    ],
-    learnings: [
-      "Payment interfaces need calm, unambiguous states more than decorative UI.",
-      "Error handling is part of the product experience, not just backend hygiene.",
-      "Real-time updates are most useful when paired with strict validation and recovery paths."
-    ]
-  }
+  // {
+  //   slug: "flashpay",
+  //   title: "FLASHPAY",
+  //   version: "v0.8.0",
+  //   status: "PAYMENT_APP",
+  //   description:
+  //     "A secure payment application using React and Node.js with real-time transaction handling, validation, and resilient error states.",
+  //   longDescription:
+  //     "A payment application prototype focused on secure flows, real-time transaction updates, and validation-driven reliability across transfer operations.",
+  //   tags: ["REACT", "NODE.JS", "REALTIME"],
+  //   image: "/images/hyper-card.png",
+  //   darkImage: "/images/hyper-card.png",
+  //   heroImage: "/images/hyper-hero-light.png",
+  //   heroDarkImage: "/images/hyper-hero-dark.png",
+  //   action: "VIEW_FLOW",
+  //   sourceUrl: "https://github.com/ShaikhAman01",
+  //   docsUrl: "#docs",
+  //   metrics: [
+  //     ["FAILED_TXNS", "-20%"],
+  //     ["BACKEND", "NODE.JS"],
+  //     ["UPDATES", "REALTIME"],
+  //     ["VALIDATION", "ENFORCED"]
+  //   ],
+  //   stack: ["APP:REACT", "API:NODE.JS", "REALTIME:WEBSOCKETS", "VALIDATION:ZOD", "STATE:TRANSACTIONS"],
+  //   about: [
+  //     "FlashPay is a secure payment application prototype built to handle transaction flows with strong validation and clear error recovery.",
+  //     "The project emphasizes real-time feedback, backend validation, and defensive UI states so users understand what is happening during transfers."
+  //   ],
+  //   challenges: [
+  //     "Representing transaction states clearly while the backend processes updates.",
+  //     "Reducing failed transactions through stronger validation and predictable error messages.",
+  //     "Separating UI concerns from payment-flow logic so the codebase remains maintainable."
+  //   ],
+  //   learnings: [
+  //     "Payment interfaces need calm, unambiguous states more than decorative UI.",
+  //     "Error handling is part of the product experience, not just backend hygiene.",
+  //     "Real-time updates are most useful when paired with strict validation and recovery paths."
+  //   ]
+  // }
 ];
 
 export const skills = [
