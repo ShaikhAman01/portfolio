@@ -11,7 +11,7 @@ export const profile = {
   handle: "shaikhaman01",
   github: "https://github.com/ShaikhAman01",
   linkedin: "https://www.linkedin.com/in/shaikhaman01",
-  x: "https://x.com/shaikaman01",
+  x: "https://x.com/shaikhaman01",
   heroDescription:
     "Backend-leaning fullstack developer building reliable web systems with clean APIs, production-minded data models, and fast user interfaces.",
   contactDescription:
