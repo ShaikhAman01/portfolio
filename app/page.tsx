@@ -1,9 +1,12 @@
+"use client";
+
 import {
   Binary,
   History as HistoryIcon,
   Mail,
   Server,
 } from "lucide-react";
+import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
 import { MotionDiv, Reveal } from "@/components/motion";
 import { ProjectCard } from "@/components/project-card";
@@ -20,45 +23,129 @@ export default function Home() {
         {/* HERO SECTION */}
         <section className="mx-auto max-w-[105rem] px-5 py-12 md:px-8 md:py-24">
           <Reveal>
-            <div className="border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-7 shadow-[8px_8px_0_rgba(0,0,0,0.08)] md:p-16">
-              <div className="mb-16 flex gap-3">
-                <span className="h-4 w-4 rounded-full bg-red-700" />
-                <span className="h-4 w-4 rounded-full bg-blue-300" />
-                <span className="h-4 w-4 rounded-full bg-emerald-400" />
+            <div className="border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-7 md:p-12">
+
+              {/* Window UI Top Controls */}
+              <div className="mb-12 flex gap-3">
+                <span className="h-3.5 w-3.5 rounded-full bg-red-500" />
+                <span className="h-3.5 w-3.5 rounded-full bg-blue-400" />
+                <span className="h-3.5 w-3.5 rounded-full bg-emerald-400" />
               </div>
-              
+
               <HeroCode />
-              
-              <MotionDiv
-                initial={false}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <h1 className="max-w-6xl text-5xl font-black leading-tight tracking-tight md:text-7xl xl:text-8xl">
-                  Building backend-minded fullstack systems with mechanical
-                  precision.
-                  <BlinkingCursor />
-                </h1>
-                
-                <p className="mt-8 max-w-4xl text-xl leading-9 text-[var(--on-surface-variant)] md:text-2xl">
-                  {profile.heroDescription}
-                </p>
-                
-                <div className="mt-12 flex flex-col gap-5 sm:flex-row">
-                  <a
-                    href="#contact"
-                    className="bg-black px-10 py-6 text-center text-lg font-black tracking-[0.14em] text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400"
+
+              {/* Terminal Panel Split Grid Frame */}
+              <div className="mt-10 border border-[var(--outline-variant)]">
+                <div className="grid lg:grid-cols-[1.4fr_0.9fr]">
+
+                  {/* LEFT PANE: Typography & Action Handles */}
+                  <MotionDiv
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="p-8 md:p-14"
                   >
-                    INITIALIZE_CONTACT →
-                  </a>
-                  <a
-                    href={profile.resumeUrl}
-                    className="border border-black bg-[var(--surface-container-lowest)] px-10 py-6 text-center text-lg font-black tracking-[0.14em] text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+                    <div className="mb-6 font-mono text-sm tracking-wider text-blue-700 dark:text-emerald-400">
+                      aman@system:~$
+                    </div>
+
+                    <h1 className="max-w-5xl text-5xl font-black leading-[0.92] tracking-[-0.05em] md:text-7xl xl:text-8xl">
+                      Building reliable
+                      <br />
+                      web systems.
+                      <BlinkingCursor />
+                    </h1>
+
+                    <p className="mt-8 max-w-2xl text-lg leading-8 text-[var(--on-surface-variant)] md:text-xl">
+                      Backend-first engineer focused on scalable APIs,
+                      realtime applications, databases, and
+                      production-ready fullstack products.
+                    </p>
+
+                    {/* Streamlined UI Action Layout */}
+                    <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+                      {/* Primary Solid Action Option */}
+                      <a
+                        href="#projects"
+                        className="bg-black px-8 py-5 text-center text-md font-black tracking-[0.14em] text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400"
+                      >
+                        VIEW_PROJECTS →
+                      </a>
+
+                      {/* Secondary Outline Action Option */}
+                      <a
+                        href={profile.resumeUrl}
+                        className="border border-black bg-[var(--surface-container-lowest)] px-8 py-5 text-center text-md font-black tracking-[0.14em] text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+                      >
+                        DOWNLOAD_CV.PDF
+                      </a>
+                    </div>
+                  </MotionDiv>
+
+                  {/* RIGHT PANE: Interactive Terminal Render Frame */}
+                  <MotionDiv
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.15 }}
+                    className="
+                      group
+                      border-t
+                      border-[var(--outline-variant)]
+                      lg:border-l
+                      lg:border-t-0
+                      flex
+                      items-center
+                      justify-center
+                      p-8
+                      md:p-12
+                    "
                   >
-                    DOWNLOAD_CV.PDF
-                  </a>
+                    <div className="w-full max-w-[320px]">
+                      <div className="mb-6 font-mono text-xs tracking-widest text-[var(--outline)] transition-colors duration-200 group-hover:text-blue-700 dark:group-hover:text-emerald-400">
+                        engineer.render()
+                      </div>
+
+                      {/* Image container layout frame */}
+                      <div className="relative w-full overflow-hidden border border-transparent transition-colors duration-300 group-hover:border-[var(--outline-variant)]">
+                        
+                        {/* Hover-Activated Adaptive Scanline overlay */}
+                        <div className="animate-terminal-scan" />
+                        
+                        <Image
+                          src="/images/pixel-avatar1.png"
+                          alt="Shaikh Aman"
+                          width={400}
+                          height={400}
+                          priority
+                          className="w-full object-contain transition-all duration-300"
+                          style={{
+                            imageRendering: "pixelated",
+                          }}
+                        />
+                      </div>
+
+                      <div className="mt-6 space-y-2 font-mono text-xs">
+                        <div className="flex justify-between border-t border-[var(--outline-variant)] pt-3">
+                          <span>STATUS</span>
+                          <span className="text-blue-700 dark:text-emerald-400">
+                            ONLINE
+                          </span>
+                        </div>
+
+                        <div className="flex justify-between">
+                          <span>FOCUS</span>
+                          <span>BACKEND</span>
+                        </div>
+
+                        <div className="flex justify-between">
+                          <span>LOCATION</span>
+                          <span>HYDERABAD</span>
+                        </div>
+                      </div>
+                    </div>
+                  </MotionDiv>
                 </div>
-              </MotionDiv>
+              </div>
             </div>
           </Reveal>
         </section>

@@ -7,13 +7,13 @@ const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 }
   }
 };
 
 const line = {
   hidden: { opacity: 0, x: -10 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.2 } }
+  show: { opacity: 1, x: 0, transition: { duration: 0.25, ease: "easeOut" } }
 };
 
 export function HeroCode() {
@@ -22,43 +22,74 @@ export function HeroCode() {
       variants={container}
       initial="hidden"
       animate="show"
-      className="mb-20 overflow-x-auto text-base leading-8 md:text-2xl"
+      className="mb-12 w-full overflow-x-hidden rounded-lg bg-zinc-50/50 p-6 font-mono text-base font-semibold leading-8 sm:text-lg sm:leading-9 md:text-xl md:leading-10 tracking-normal text-[var(--on-surface)] dark:bg-zinc-900/30 border border-[var(--outline-variant)]/30"
     >
-      <code>
-        <motion.div variants={line}>
-          <span className="text-blue-700 dark:text-sky-400">export const</span> Engineer = {"{"}
+      <code className="block select-text">
+        {/* Declaration Line */}
+        <motion.div variants={line} className="whitespace-nowrap">
+          <span className="text-blue-600 dark:text-sky-400 font-bold">const</span>{" "}
+          <span className="text-zinc-800 dark:text-zinc-200">Engineer</span>{" "}
+          <span className="text-zinc-400 dark:text-zinc-500">=</span>{" "}
+          <span className="text-zinc-400 dark:text-zinc-500">{"{"}</span>
         </motion.div>
         
-        <motion.div variants={line}>
-          {"  "}<span className="text-zinc-500">name:</span> <span className="text-emerald-600">'{profile.name}'</span>,
+        {/* String Values */}
+        <motion.div variants={line} className="pl-6 sm:pl-8 whitespace-nowrap">
+          <span className="text-zinc-600 dark:text-zinc-400">name</span>
+          <span className="text-zinc-400 dark:text-zinc-500">:</span>{" "}
+          <span className="text-emerald-600 dark:text-emerald-400">'{profile.name}'</span>
+          <span className="text-zinc-400 dark:text-zinc-500">,</span>
         </motion.div>
         
-        <motion.div variants={line}>
-          {"  "}<span className="text-zinc-500">role:</span> <span className="text-emerald-600">'{profile.role}'</span>,
+        <motion.div variants={line} className="pl-6 sm:pl-8 whitespace-nowrap">
+          <span className="text-zinc-600 dark:text-zinc-400">role</span>
+          <span className="text-zinc-400 dark:text-zinc-500">:</span>{" "}
+          <span className="text-emerald-600 dark:text-emerald-400">'{profile.role}'</span>
+          <span className="text-zinc-400 dark:text-zinc-500">,</span>
         </motion.div>
         
-        <motion.div variants={line}>
-          {"  "}<span className="text-zinc-500">focus:</span> <span className="text-emerald-600">'{profile.focus}'</span>,
+        <motion.div variants={line} className="pl-6 sm:pl-8 whitespace-nowrap">
+          <span className="text-zinc-600 dark:text-zinc-400">focus</span>
+          <span className="text-zinc-400 dark:text-zinc-500">:</span>{" "}
+          <span className="text-emerald-600 dark:text-emerald-400">'{profile.focus}'</span>
+          <span className="text-zinc-400 dark:text-zinc-500">,</span>
         </motion.div>
         
-        <motion.div variants={line}>
-          {"  "}<span className="text-zinc-500">stack:</span> [{heroStack.map((item, index) => (
-            <span key={item}>
-              <span className="text-emerald-600">'{item}'</span>{index < heroStack.length - 1 ? ", " : ""}
-            </span>
-          ))}],
+        {/* Responsive Mobile Array Stack Block */}
+        <motion.div variants={line} className="pl-6 sm:pl-8 flex flex-wrap items-start">
+          <span className="text-zinc-600 dark:text-zinc-400 flex-shrink-0">stack</span>
+          <span className="text-zinc-400 dark:text-zinc-500 flex-shrink-0">:</span>{" "}
+          <div className="flex flex-wrap items-center text-emerald-600 dark:text-emerald-400 pl-1">
+            <span className="text-zinc-400 dark:text-zinc-500 mr-1">[</span>
+            {heroStack.map((item, index) => (
+              <span key={item} className="inline-flex items-center whitespace-nowrap">
+                <span>'{item}'</span>
+                {index < heroStack.length - 1 && (
+                  <span className="text-zinc-400 dark:text-zinc-500 mr-2">,</span>
+                )}
+              </span>
+            ))}
+            <span className="text-zinc-400 dark:text-zinc-500">]</span>
+            <span className="text-zinc-400 dark:text-zinc-500">,</span>
+          </div>
         </motion.div>
         
-        <motion.div variants={line}>
-          {"  "}<span className="text-zinc-500">location:</span> <span className="text-emerald-600">'{profile.location}'</span>,
+        <motion.div variants={line} className="pl-6 sm:pl-8 whitespace-nowrap">
+          <span className="text-zinc-600 dark:text-zinc-400">location</span>
+          <span className="text-zinc-400 dark:text-zinc-500">:</span>{" "}
+          <span className="text-emerald-600 dark:text-emerald-400">'{profile.location}'</span>
+          <span className="text-zinc-400 dark:text-zinc-500">,</span>
         </motion.div>
         
-        <motion.div variants={line}>
-          {"  "}<span className="text-zinc-500">status:</span> <span className="text-emerald-600">'{profile.status}'</span>
+        <motion.div variants={line} className="pl-6 sm:pl-8 whitespace-nowrap">
+          <span className="text-zinc-600 dark:text-zinc-400">status</span>
+          <span className="text-zinc-400 dark:text-zinc-500">:</span>{" "}
+          <span className="text-emerald-600 dark:text-emerald-400">'{profile.status}'</span>
         </motion.div>
         
-        <motion.div variants={line}>
-          {"};"}
+        {/* Closing Tag Line */}
+        <motion.div variants={line} className="whitespace-nowrap">
+          <span className="text-zinc-400 dark:text-zinc-500">{"};"}</span>
         </motion.div>
       </code>
     </motion.pre>

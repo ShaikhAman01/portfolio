@@ -105,3 +105,51 @@ body::after {
   pointer-events: none; /* Ensures it doesn't block clicks */
   z-index: 9999;
 }
+
+@layer utilities {
+  @keyframes scanlineMovement {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  /* 1. Base State: completely invisible and paused */
+  .animate-terminal-scan {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    
+    /* Light Mode: Vibrant Blue Laser Scan */
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(29, 78, 216, 0.02) 60%,
+      rgba(29, 78, 216, 0.2) 92%,
+      rgba(29, 78, 216, 0.45) 98%,
+      transparent 100%
+    );
+  }
+
+  /* 2. Hover Trigger: Only animate when the parent .group is hovered */
+  .group:hover .animate-terminal-scan {
+    opacity: 1;
+    animation: scanlineMovement 2.2s infinite linear;
+  }
+
+  /* 3. Dark Mode Override: Explicitly switches to Emerald Green on hover */
+  .dark .animate-terminal-scan {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(16, 185, 129, 0.02) 60%,
+      rgba(16, 185, 129, 0.25) 92%,
+      rgba(16, 185, 129, 0.5) 98%,
+      transparent 100%
+    );
+  }
+}
