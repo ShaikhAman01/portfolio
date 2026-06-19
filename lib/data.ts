@@ -223,6 +223,10 @@ export const history = [
       "Optimized RESTful APIs with JWT authentication, improving response time by 25%.",
       "Integrated WebSocket-based communication, boosting engagement by 40%.",
       "Refactored the codebase to reduce technical debt and bug reports by 15%."
+    ],
+    links: [
+      { label: "DRIVER_APP (ANDROID)", url: "https://play.google.com/store/apps/details?id=com.vamsi98.urbanloop_mobile" },
+      { label: "USER_APP (IOS/ANDROID)", url: "https://apps.apple.com/in/app/urbanloop-get-instant-rides/id6748720148" }
     ]
   }
 ];
