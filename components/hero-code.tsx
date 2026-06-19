@@ -22,9 +22,9 @@ export function HeroCode() {
       variants={container}
       initial="hidden"
       animate="show"
-      className="mb-12 w-full overflow-x-hidden rounded-lg bg-zinc-50/50 p-6 font-mono text-base font-semibold leading-8 sm:text-lg sm:leading-9 md:text-xl md:leading-10 tracking-normal text-[var(--on-surface)] dark:bg-zinc-900/30 border border-[var(--outline-variant)]/30"
+      className="mb-12 w-full overflow-x-hidden rounded-lg bg-zinc-50/50 p-4 sm:p-6 font-mono text-xs xs:text-sm sm:text-base font-semibold leading-6 xs:leading-7 sm:leading-9 md:text-xl md:leading-10 tracking-normal text-[var(--on-surface)] dark:bg-zinc-900/30 border border-[var(--outline-variant)]/30"
     >
-      <code className="block select-text">
+      <code className="block select-text w-full">
         {/* Declaration Line */}
         <motion.div variants={line} className="whitespace-nowrap">
           <span className="text-blue-600 dark:text-sky-400 font-bold">const</span>{" "}
@@ -33,39 +33,39 @@ export function HeroCode() {
           <span className="text-zinc-400 dark:text-zinc-500">{"{"}</span>
         </motion.div>
         
-        {/* String Values */}
-        <motion.div variants={line} className="pl-6 sm:pl-8 whitespace-nowrap">
-          <span className="text-zinc-600 dark:text-zinc-400">name</span>
-          <span className="text-zinc-400 dark:text-zinc-500">:</span>{" "}
-          <span className="text-emerald-600 dark:text-emerald-400">'{profile.name}'</span>
+        {/* String Values: Swapped whitespace-nowrap with responsive wrapping classes */}
+        <motion.div variants={line} className="pl-4 sm:pl-8 flex flex-wrap items-start row-gap-0">
+          <span className="text-zinc-600 dark:text-zinc-400 shrink-0">name</span>
+          <span className="text-zinc-400 dark:text-zinc-500 mr-1.5">:</span>{" "}
+          <span className="text-emerald-600 dark:text-emerald-400 break-all sm:break-normal">'{profile.name}'</span>
           <span className="text-zinc-400 dark:text-zinc-500">,</span>
         </motion.div>
         
-        <motion.div variants={line} className="pl-6 sm:pl-8 whitespace-nowrap">
-          <span className="text-zinc-600 dark:text-zinc-400">role</span>
-          <span className="text-zinc-400 dark:text-zinc-500">:</span>{" "}
-          <span className="text-emerald-600 dark:text-emerald-400">'{profile.role}'</span>
+        <motion.div variants={line} className="pl-4 sm:pl-8 flex flex-wrap items-start row-gap-0">
+          <span className="text-zinc-600 dark:text-zinc-400 shrink-0">role</span>
+          <span className="text-zinc-400 dark:text-zinc-500 mr-1.5">:</span>{" "}
+          <span className="text-emerald-600 dark:text-emerald-400 break-words sm:break-normal">'{profile.role}'</span>
           <span className="text-zinc-400 dark:text-zinc-500">,</span>
         </motion.div>
         
-        <motion.div variants={line} className="pl-6 sm:pl-8 whitespace-nowrap">
-          <span className="text-zinc-600 dark:text-zinc-400">focus</span>
-          <span className="text-zinc-400 dark:text-zinc-500">:</span>{" "}
-          <span className="text-emerald-600 dark:text-emerald-400">'{profile.focus}'</span>
+        <motion.div variants={line} className="pl-4 sm:pl-8 flex flex-wrap items-start row-gap-0">
+          <span className="text-zinc-600 dark:text-zinc-400 shrink-0">focus</span>
+          <span className="text-zinc-400 dark:text-zinc-500 mr-1.5">:</span>{" "}
+          <span className="text-emerald-600 dark:text-emerald-400 break-words sm:break-normal">'{profile.focus}'</span>
           <span className="text-zinc-400 dark:text-zinc-500">,</span>
         </motion.div>
         
         {/* Responsive Mobile Array Stack Block */}
-        <motion.div variants={line} className="pl-6 sm:pl-8 flex flex-wrap items-start">
-          <span className="text-zinc-600 dark:text-zinc-400 flex-shrink-0">stack</span>
-          <span className="text-zinc-400 dark:text-zinc-500 flex-shrink-0">:</span>{" "}
-          <div className="flex flex-wrap items-center text-emerald-600 dark:text-emerald-400 pl-1">
+        <motion.div variants={line} className="pl-4 sm:pl-8 flex flex-wrap items-start row-gap-0">
+          <span className="text-zinc-600 dark:text-zinc-400 shrink-0">stack</span>
+          <span className="text-zinc-400 dark:text-zinc-500 mr-1.5">:</span>{" "}
+          <div className="flex flex-wrap items-center text-emerald-600 dark:text-emerald-400">
             <span className="text-zinc-400 dark:text-zinc-500 mr-1">[</span>
             {heroStack.map((item, index) => (
               <span key={item} className="inline-flex items-center whitespace-nowrap">
                 <span>'{item}'</span>
                 {index < heroStack.length - 1 && (
-                  <span className="text-zinc-400 dark:text-zinc-500 mr-2">,</span>
+                  <span className="text-zinc-400 dark:text-zinc-500 mr-1.5">,</span>
                 )}
               </span>
             ))}
@@ -74,17 +74,17 @@ export function HeroCode() {
           </div>
         </motion.div>
         
-        <motion.div variants={line} className="pl-6 sm:pl-8 whitespace-nowrap">
-          <span className="text-zinc-600 dark:text-zinc-400">location</span>
-          <span className="text-zinc-400 dark:text-zinc-500">:</span>{" "}
-          <span className="text-emerald-600 dark:text-emerald-400">'{profile.location}'</span>
+        <motion.div variants={line} className="pl-4 sm:pl-8 flex flex-wrap items-start row-gap-0">
+          <span className="text-zinc-600 dark:text-zinc-400 shrink-0">location</span>
+          <span className="text-zinc-400 dark:text-zinc-500 mr-1.5">:</span>{" "}
+          <span className="text-emerald-600 dark:text-emerald-400 break-words sm:break-normal">'{profile.location}'</span>
           <span className="text-zinc-400 dark:text-zinc-500">,</span>
         </motion.div>
         
-        <motion.div variants={line} className="pl-6 sm:pl-8 whitespace-nowrap">
-          <span className="text-zinc-600 dark:text-zinc-400">status</span>
-          <span className="text-zinc-400 dark:text-zinc-500">:</span>{" "}
-          <span className="text-emerald-600 dark:text-emerald-400">'{profile.status}'</span>
+        <motion.div variants={line} className="pl-4 sm:pl-8 flex flex-wrap items-start row-gap-0">
+          <span className="text-zinc-600 dark:text-zinc-400 shrink-0">status</span>
+          <span className="text-zinc-400 dark:text-zinc-500 mr-1.5">:</span>{" "}
+          <span className="text-emerald-600 dark:text-emerald-400 break-words sm:break-normal">'{profile.status}'</span>
         </motion.div>
         
         {/* Closing Tag Line */}
