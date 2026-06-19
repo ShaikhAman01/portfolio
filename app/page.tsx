@@ -182,7 +182,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* HISTORY SECTION */}
+     {/* HISTORY SECTION */}
         <section id="history" className="mx-auto max-w-[105rem] px-4 py-12 sm:px-6 md:px-8">
           <SectionTitle icon={HistoryIcon}>/VAR/LOG/HISTORY</SectionTitle>
           <div className="space-y-0 border-l-4 border-[var(--outline-variant)]">
@@ -205,6 +205,24 @@ export default function Home() {
                           <li key={highlight} className="break-words">→ {highlight}</li>
                         ))}
                       </ul>
+                    )}
+
+                    {"links" in item && item.links && item.links.length > 0 && (
+                      <div className="mt-6 flex flex-wrap gap-3 font-mono text-xs">
+                        {item.links.map((link) => (
+                          <a
+                            key={link.label}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] px-3 py-1.5 font-bold uppercase tracking-wider text-[var(--on-surface-variant)] transition hover:border-blue-700 hover:text-blue-700 dark:hover:border-emerald-400 dark:hover:text-emerald-400 hover:shadow-[2px_2px_0_rgba(0,0,0,0.05)]"
+                          >
+                            <span>ls</span>
+                            <span className="text-[var(--outline)]">../</span>
+                            <span className="underline decoration-dotted">{link.label}</span>
+                          </a>
+                        ))}
+                      </div>
                     )}
                   </div>
                   <p className="text-md md:text-xl font-bold tracking-[0.12em] text-[var(--outline)] md:text-right shrink-0 mt-2 md:mt-0">
