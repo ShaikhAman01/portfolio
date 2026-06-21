@@ -66,6 +66,50 @@ export const projects = [
     ]
   },
   {
+    slug: "pixelplayground",
+    title: "PIXELPLAYGROUND",
+    version: "v1.0.0",
+    status: "COZY_ARCADE",
+    description:
+      "A dual-mode, highly responsive mini-game web arcade featuring an immersive glassmorphic design language, centralized state management, real-time background audio handling, and adaptive theme synchronization.",
+    longDescription:
+      "An engagement-focused platform with smooth page transitions using Framer Motion. Engineered around optimized mobile layouts, contextual sub-menus, and isolated state triggers to ensure frictionless canvas manipulation and static asset loading.",
+    tags: ["NEXT.JS", "REACT", "ZUSTAND", "FRAMER_MOTION"],
+    image: "/images/pixelplayground.png",
+    darkImage: "/images/pixelplayground.png",
+    heroImage: "/images/pixelplayground.png",
+    heroDarkImage: "/images/pixelplayground.png",
+    action: "EXPLORE_BUILD",
+    sourceUrl: "https://github.com/ShaikhAman01/PixelPlayground",
+    liveUrl: "https://pixelplayground.shaikhaman.dev", 
+    docsUrl: "#docs",
+    metrics: [
+      ["STATE", "ZUSTAND"],
+      ["ANIMATION", "FRAMER_MOTION"],
+      ["AUDIO", "HTML5_CONTEXT"],
+      ["LAYOUT", "RESPONSIVE"]
+    ],
+    stack: [
+      "APP:NEXT.JS",
+      "STYLE:TAILWIND_CSS",
+      "STATE:ZUSTAND",
+      "ANIMATION:FRAMER_MOTION",
+      "ICONS:LUCIDE_REACT"
+    ],
+    about: [
+      "PixelPlayground features dual context engines (Play and Chill modes) that reshape structural layouts instantly depending on client preferences.",
+      "The layout engine shifts from fixed rows on desktops into space-efficient, stacked utility decks on mobile screens to maintain optimized touch targets and eliminate accidental interactive misclicks."
+    ],
+    challenges: [
+      "Preventing HTML5 client-side ambient audio instances from overlapping and dropping off-thread due to persistent Next.js component rerender updates.",
+      "Ensuring clean global navigation hooks that clear layout-stuck highlight anchors dynamically as users move between routes."
+    ],
+    learnings: [
+      "Lifting component audio initialization targets outside of client-side hydration loop blocks ensures consistent, memory-safe audio stream operations.",
+      "Embedding descriptive parameters like credits directly into secondary operational panel menus preserves landing page canvas aesthetics while keeping accessibility intact."
+    ]
+  },
+  {
     slug: "inscribe",
     title: "INSCRIBE",
     version: "v1.0.0",
