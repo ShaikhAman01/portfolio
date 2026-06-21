@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Binary,
-  History as HistoryIcon,
-  Mail,
-  Server,
-} from "lucide-react";
+import { Binary, History as HistoryIcon, Mail, Server } from "lucide-react";
 import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
 import { MotionDiv, Reveal } from "@/components/motion";
@@ -19,12 +14,10 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col w-full overflow-x-hidden">
       <main className="flex-1 bg-[var(--bg)] text-[var(--on-surface)] w-full">
-        
         {/* HERO SECTION */}
         <section className="mx-auto max-w-[105rem] px-4 py-8 sm:px-6 md:px-8 md:py-24">
           <Reveal>
             <div className="border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-5 sm:p-7 md:p-12">
-
               {/* Window UI Top Controls */}
               <div className="mb-8 md:mb-12 flex gap-3">
                 <span className="h-3.5 w-3.5 rounded-full bg-red-500" />
@@ -39,7 +32,6 @@ export default function Home() {
               {/* Terminal Panel Split Grid Frame */}
               <div className="mt-10 border border-[var(--outline-variant)]">
                 <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_0.9fr]">
-
                   {/* LEFT PANE: Typography & Action Handles */}
                   <MotionDiv
                     initial={{ opacity: 0, x: -20 }}
@@ -59,9 +51,9 @@ export default function Home() {
                     </h1>
 
                     <p className="mt-6 md:mt-8 max-w-2xl text-md leading-7 sm:text-lg sm:leading-8 text-[var(--on-surface-variant)] md:text-xl">
-                      Backend-first engineer focused on scalable APIs,
-                      realtime applications, databases, and
-                      production-ready fullstack products.
+                      Backend-first engineer focused on scalable APIs, realtime
+                      applications, databases, and production-ready fullstack
+                      products.
                     </p>
 
                     {/* Streamlined UI Action Layout */}
@@ -110,15 +102,27 @@ export default function Home() {
                       </div>
 
                       {/* Image container layout frame */}
-                      <div className="relative w-full overflow-hidden border border-transparent transition-colors duration-300 group-hover:border-[var(--outline-variant)]">
+                      <div className="relative w-full overflow-hidden border border-transparent transition-colors duration-300 group-hover:border-[var(--outline-variant)] bg-black dark:bg-zinc-200">
+                        {/* Hover-Activated Adaptive Scanline overlay */}
                         <div className="animate-terminal-scan" />
+
+                        {/* RETRO DITHERING MATRIX OVERLAY */}
+                        <div
+                          className="absolute inset-0 z-10 pointer-events-none mix-blend-multiply opacity-40 dark:opacity-20"
+                          style={{
+                            backgroundImage: `radial-gradient(circle, #000 25%, transparent 26%), radial-gradient(circle, #000 25%, transparent 26%)`,
+                            backgroundSize: "4px 4px",
+                            backgroundPosition: "0 0, 2px 2px",
+                          }}
+                        />
+
                         <Image
-                          src="/images/pixel-avatar1.png"
+                          src="/images/image1.png"
                           alt="Shaikh Aman"
                           width={400}
                           height={400}
                           priority
-                          className="w-full h-auto object-contain transition-all duration-300"
+                          className="w-full object-contain grayscale transition-all duration-700 ease-out contrast-[1.10] brightness-[0.95] saturate-[0.75] group-hover:grayscale-0 group-hover:contrast-[1.15] group-hover:brightness-[1.00] dark:contrast-[1.05] dark:brightness-[0.90]"
                           style={{
                             imageRendering: "pixelated",
                           }}
@@ -170,7 +174,9 @@ export default function Home() {
                 <div className="group relative border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 sm:p-8 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-blue-700 hover:shadow-[6px_6px_0_rgba(0,0,0,0.1)] dark:hover:border-emerald-400">
                   <div className="absolute right-6 top-6 h-2 w-2 bg-[var(--outline-variant)] transition-colors duration-300 group-hover:bg-blue-700 dark:group-hover:bg-emerald-400" />
                   <p className="mb-5 flex items-center gap-2 text-sm font-black tracking-[0.18em] text-[var(--outline)] transition-colors duration-300 group-hover:text-[var(--on-surface)]">
-                    <span className="text-blue-700 dark:text-emerald-400">//</span> 
+                    <span className="text-blue-700 dark:text-emerald-400">
+                      //
+                    </span>
                     {label}
                   </p>
                   <p className="text-2xl sm:text-3xl font-black text-[var(--on-surface)]">
@@ -182,7 +188,7 @@ export default function Home() {
           </div>
         </section>
 
-     {/* HISTORY SECTION */}
+        {/* HISTORY SECTION */}
         <section id="history" className="mx-auto max-w-[105rem] px-4 py-12 sm:px-6 md:px-8">
           <SectionTitle icon={HistoryIcon}>/VAR/LOG/HISTORY</SectionTitle>
           <div className="space-y-0 border-l-4 border-[var(--outline-variant)]">
@@ -239,7 +245,6 @@ export default function Home() {
           <SectionTitle icon={Mail}>/DEV/TTY_CONTACT</SectionTitle>
           <ContactForm />
         </section>
-        
       </main>
     </div>
   );
