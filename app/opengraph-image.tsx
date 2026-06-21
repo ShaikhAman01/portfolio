@@ -23,7 +23,6 @@ export default async function Image() {
 
   return new ImageResponse(
     (
-      // Bounding Canvas: Pure light background with subtle horizontal scanlines
       <div
         style={{
           background: "#fafafa",
@@ -37,7 +36,7 @@ export default async function Image() {
           padding: "80px 100px",
         }}
       >
-        {/* LEFT PANE: Premium Branding & Balanced Typography */}
+        {/* LEFT PANE */}
         <div 
           style={{ 
             display: "flex", 
@@ -45,13 +44,12 @@ export default async function Image() {
             width: "55%",
           }}
         >
-          {/* Explicit Standalone Identity Header Branding */}
           <div style={{ display: "flex", flexDirection: "column", marginBottom: "40px" }}>
             <span style={{ fontSize: "24px", fontWeight: 900, color: "#18181b", letterSpacing: "0.05em" }}>
               SHAIKH_AMAN
             </span>
             <span style={{ fontSize: "14px", fontWeight: 700, color: "#71717a", letterSpacing: "0.1em", marginTop: "2px" }}>
-              BACKEND ENGINEER
+              FULLSTACK DEVELOPER
             </span>
           </div>
 
@@ -67,7 +65,6 @@ export default async function Image() {
             aman@system:~$
           </div>
           
-          {/* 💎 Refined: Reduced headline size to 68px (~5% scale down) for superior composition weight */}
           <h1 
             style={{ 
               fontSize: "68px", 
@@ -75,10 +72,10 @@ export default async function Image() {
               color: "#18181b", 
               letterSpacing: "-0.04em",
               margin: 0,
-              lineHeight: 1.1,
+              lineHeight: 1.15, // Fixed: Increased slightly to protect character descenders
               display: "flex",
               flexDirection: "column",
-              marginBottom: "24px"
+              marginBottom: "28px"
             }}
           >
             <span>Building reliable</span>
@@ -90,27 +87,29 @@ export default async function Image() {
           
           <p 
             style={{ 
-              fontSize: "18px", 
-              color: "#52525b", 
-              lineHeight: 1.6,
+              fontSize: "24px", 
+              color: "#4b5563", 
+              lineHeight: 1.5,
               margin: 0,
               display: "flex",
-              fontWeight: 500
+              fontWeight: 700,
+              letterSpacing: "-0.02em"
             }}
           >
-            Backend-first engineer focused on scalable APIs, realtime applications, databases, and production-ready fullstack products.
+            Backend-leaning fullstack developer specializing in scalable architectures and clean APIs.
           </p>
         </div>
 
-        {/* RIGHT PANE: Sharp Portrait Deck & Telemetry Metrics */}
+        {/* RIGHT PANE */}
         <div 
           style={{ 
             display: "flex", 
             flexDirection: "column", 
+            justifyContent: "center", // Fixed: Center items to perfectly balance horizontal alignment weights
             width: "35%",
+            height: "100%"
           }}
         >
-          {/* Micro Terminal Identity Hook Above Photo */}
           <div 
             style={{ 
               marginBottom: "12px", 
@@ -124,7 +123,6 @@ export default async function Image() {
             engineer.render()
           </div>
 
-          {/* 💎 Refined: Profile Container Box with a strengthened intentional border (#cbd5e1) */}
           <div 
             style={{ 
               width: "100%", 
@@ -161,7 +159,6 @@ export default async function Image() {
             />
           </div>
 
-          {/* Minimal Telemetry Array */}
           <div style={{ display: "flex", flexDirection: "column", gap: "6px", fontSize: "12px", fontWeight: 700, width: "100%" }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <span style={{ color: "#71717a" }}>STATUS</span>
