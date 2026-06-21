@@ -16,7 +16,25 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: `${profile.name} | ${profile.role}`,
-  description: profile.heroDescription
+  description: profile.heroDescription,
+  
+  metadataBase: new URL(
+    process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : "http://localhost:3000"
+  ),
+
+  openGraph: {
+    title: profile.name,
+    description: "Building reliable web systems.",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: profile.name,
+    description: "Building reliable web systems.",
+  },
 };
 
 export default function RootLayout({
