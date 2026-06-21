@@ -37,7 +37,7 @@ export default async function Image() {
           padding: "80px 100px",
         }}
       >
-        {/* LEFT PANE: Bold High-Contrast Headline Copy */}
+        {/* LEFT PANE: Premium Branding & Balanced Typography */}
         <div 
           style={{ 
             display: "flex", 
@@ -45,21 +45,32 @@ export default async function Image() {
             width: "55%",
           }}
         >
+          {/* Explicit Standalone Identity Header Branding */}
+          <div style={{ display: "flex", flexDirection: "column", marginBottom: "40px" }}>
+            <span style={{ fontSize: "24px", fontWeight: 900, color: "#18181b", letterSpacing: "0.05em" }}>
+              SHAIKH_AMAN
+            </span>
+            <span style={{ fontSize: "14px", fontWeight: 700, color: "#71717a", letterSpacing: "0.1em", marginTop: "2px" }}>
+              BACKEND ENGINEER
+            </span>
+          </div>
+
           <div 
             style={{ 
               color: "#2563eb", 
               fontSize: "20px", 
               fontWeight: 700,
               display: "flex",
-              marginBottom: "16px"
+              marginBottom: "12px"
             }}
           >
             aman@system:~$
           </div>
           
+          {/* 💎 Refined: Reduced headline size to 68px (~5% scale down) for superior composition weight */}
           <h1 
             style={{ 
-              fontSize: "76px", 
+              fontSize: "68px", 
               fontWeight: 900, 
               color: "#18181b", 
               letterSpacing: "-0.04em",
@@ -91,7 +102,7 @@ export default async function Image() {
           </p>
         </div>
 
-        {/* RIGHT PANE: Clean Portrait Deck & Telemetry Metrics */}
+        {/* RIGHT PANE: Sharp Portrait Deck & Telemetry Metrics */}
         <div 
           style={{ 
             display: "flex", 
@@ -99,12 +110,26 @@ export default async function Image() {
             width: "35%",
           }}
         >
-          {/* Profile Container Box with signature Dither overlay */}
+          {/* Micro Terminal Identity Hook Above Photo */}
+          <div 
+            style={{ 
+              marginBottom: "12px", 
+              fontSize: "13px", 
+              color: "#71717a", 
+              fontWeight: 700, 
+              letterSpacing: "0.05em",
+              display: "flex"
+            }}
+          >
+            engineer.render()
+          </div>
+
+          {/* 💎 Refined: Profile Container Box with a strengthened intentional border (#cbd5e1) */}
           <div 
             style={{ 
               width: "100%", 
               height: "280px", 
-              border: "1px solid #e4e4e7", 
+              border: "1px solid #cbd5e1", 
               display: "flex", 
               overflow: "hidden",
               position: "relative",
