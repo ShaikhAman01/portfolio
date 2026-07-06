@@ -10,6 +10,10 @@ export const size = {
 };
 export const contentType = "image/png";
 
+function loadFont(file: string) {
+  return readFileSync(join(process.cwd(), "assets", "fonts", file));
+}
+
 export default async function Image() {
   let base64Image = "";
 
@@ -31,7 +35,7 @@ export default async function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
-          fontFamily: "monospace",
+          fontFamily: "JetBrains Mono",
           padding: "48px 56px 60px 56px",
         }}
       >
@@ -79,7 +83,7 @@ export default async function Image() {
                 paddingRight: "48px",
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", marginBottom: "28px" }}>
+              <div style={{ display: "flex", flexDirection: "column", marginBottom: "22px" }}>
                 <span style={{ fontSize: "22px", fontWeight: 900, color: "#18181b", letterSpacing: "0.05em" }}>
                   SHAIKH_AMAN
                 </span>
@@ -91,10 +95,10 @@ export default async function Image() {
               <div
                 style={{
                   color: "#2563eb",
-                  fontSize: "19px",
+                  fontSize: "18px",
                   fontWeight: 700,
                   display: "flex",
-                  marginBottom: "10px",
+                  marginBottom: "8px",
                 }}
               >
                 aman@system:~$
@@ -102,7 +106,7 @@ export default async function Image() {
 
               <h1
                 style={{
-                  fontSize: "64px",
+                  fontSize: "50px",
                   fontWeight: 900,
                   color: "#18181b",
                   letterSpacing: "-0.04em",
@@ -110,7 +114,7 @@ export default async function Image() {
                   lineHeight: 1.12,
                   display: "flex",
                   flexDirection: "column",
-                  marginBottom: "22px",
+                  marginBottom: "20px",
                 }}
               >
                 <span>Building reliable</span>
@@ -122,17 +126,17 @@ export default async function Image() {
 
               <p
                 style={{
-                  fontSize: "21px",
+                  fontSize: "19px",
                   color: "#4b5563",
                   lineHeight: 1.5,
                   margin: 0,
                   display: "flex",
                   fontWeight: 700,
                   letterSpacing: "-0.01em",
-                  marginBottom: "26px",
+                  marginBottom: "20px",
                 }}
               >
-                Backend-leaning fullstack developer. Clean APIs, production-minded data models, fast interfaces.
+                Backend-leaning fullstack developer. Clean APIs, solid data models, fast interfaces.
               </p>
 
               {/* STACK CHIPS */}
@@ -144,10 +148,10 @@ export default async function Image() {
                       border: "1px solid #cbd5e1",
                       background: "#ffffff",
                       color: "#4b5563",
-                      fontSize: "13px",
+                      fontSize: "12px",
                       fontWeight: 700,
                       letterSpacing: "0.06em",
-                      padding: "7px 12px",
+                      padding: "6px 11px",
                     }}
                   >
                     {tech}
@@ -235,6 +239,12 @@ export default async function Image() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        { name: "JetBrains Mono", data: loadFont("JetBrainsMono-Bold.ttf"), weight: 700, style: "normal" },
+        { name: "JetBrains Mono", data: loadFont("JetBrainsMono-ExtraBold.ttf"), weight: 900, style: "normal" },
+      ],
+    }
   );
 }

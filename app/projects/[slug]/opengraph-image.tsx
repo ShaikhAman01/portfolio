@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
+import { join } from "path";
 import { profile, projects } from "@/lib/data";
 
 export const runtime = "nodejs";
@@ -8,6 +10,15 @@ export const size = {
   height: 630,
 };
 export const contentType = "image/png";
+
+function loadFont(file: string) {
+  return readFileSync(join(process.cwd(), "assets", "fonts", file));
+}
+
+const imageFonts = () => [
+  { name: "JetBrains Mono", data: loadFont("JetBrainsMono-Bold.ttf"), weight: 700 as const, style: "normal" as const },
+  { name: "JetBrains Mono", data: loadFont("JetBrainsMono-ExtraBold.ttf"), weight: 900 as const, style: "normal" as const },
+];
 
 export default async function Image({
   params,
@@ -28,7 +39,7 @@ export default async function Image({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontFamily: "monospace",
+            fontFamily: "JetBrains Mono",
             fontSize: "48px",
             fontWeight: 900,
             color: "#18181b",
@@ -37,7 +48,7 @@ export default async function Image({
           {profile.brand}
         </div>
       ),
-      { ...size }
+      { ...size, fonts: imageFonts() }
     );
   }
 
@@ -51,7 +62,7 @@ export default async function Image({
           width: "100%",
           height: "100%",
           display: "flex",
-          fontFamily: "monospace",
+          fontFamily: "JetBrains Mono",
           padding: "48px 56px 60px 56px",
         }}
       >
@@ -99,7 +110,7 @@ export default async function Image({
                 paddingRight: "48px",
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", marginBottom: "26px" }}>
+              <div style={{ display: "flex", flexDirection: "column", marginBottom: "20px" }}>
                 <span style={{ fontSize: "22px", fontWeight: 900, color: "#18181b", letterSpacing: "0.05em" }}>
                   {profile.brand}
                 </span>
@@ -111,10 +122,10 @@ export default async function Image({
               <div
                 style={{
                   color: "#2563eb",
-                  fontSize: "19px",
+                  fontSize: "17px",
                   fontWeight: 700,
                   display: "flex",
-                  marginBottom: "10px",
+                  marginBottom: "8px",
                 }}
               >
                 aman@system:~$ open projects/{project.slug}
@@ -122,20 +133,20 @@ export default async function Image({
 
               <h1
                 style={{
-                  fontSize: "58px",
+                  fontSize: "52px",
                   fontWeight: 900,
                   color: "#18181b",
                   letterSpacing: "-0.03em",
                   margin: 0,
                   lineHeight: 1.1,
                   display: "flex",
-                  marginBottom: "18px",
+                  marginBottom: "16px",
                 }}
               >
                 {project.title}
               </h1>
 
-              <div style={{ display: "flex", marginBottom: "20px" }}>
+              <div style={{ display: "flex", marginBottom: "16px" }}>
                 <span
                   style={{
                     border: "1px dashed #2563eb",
@@ -153,7 +164,7 @@ export default async function Image({
 
               <p
                 style={{
-                  fontSize: "20px",
+                  fontSize: "18px",
                   color: "#4b5563",
                   lineHeight: 1.5,
                   margin: 0,
@@ -246,6 +257,6 @@ export default async function Image({
         </div>
       </div>
     ),
-    { ...size }
+    { ...size, fonts: imageFonts() }
   );
 }

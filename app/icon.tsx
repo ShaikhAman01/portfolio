@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
+import { join } from "path";
 
 export const size = {
   width: 32,
@@ -12,6 +14,7 @@ export default function Icon() {
       <div
         style={{
           fontSize: 19,
+          fontFamily: "JetBrains Mono",
           background: "#09090b",
           width: "100%",
           height: "100%",
@@ -29,6 +32,14 @@ export default function Icon() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: "JetBrains Mono",
+          data: readFileSync(join(process.cwd(), "assets", "fonts", "JetBrainsMono-ExtraBold.ttf")),
+          weight: 900,
+          style: "normal",
+        },
+      ],
     }
   );
 }
