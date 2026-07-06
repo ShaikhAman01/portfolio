@@ -154,14 +154,14 @@ export default async function ProjectPage({
         {/* METRICS SECTION: SYSTEM DIAGNOSTICS */}
         <section className="mx-auto grid max-w-[105rem] gap-4 sm:gap-6 px-5 py-6 md:grid-cols-2 md:px-8 xl:grid-cols-4">
           {project.metrics.map(([label, value], index) => (
-            <Reveal key={label} delay={index * 0.05}>
-              <div className="group relative min-w-0 overflow-hidden border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 sm:p-8 transition-colors hover:border-blue-700 dark:hover:border-emerald-400">
+            <Reveal key={label} delay={index * 0.05} className="h-full">
+              <div className="group relative flex h-full min-w-0 flex-col overflow-hidden border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 sm:p-8 transition-colors hover:border-blue-700 dark:hover:border-emerald-400">
                 <div className="absolute right-0 top-0 h-4 w-4 border-r-2 border-t-2 border-[var(--outline-variant)] transition-colors group-hover:border-blue-700 dark:group-hover:border-emerald-400" />
                 <p className="mb-4 sm:mb-6 break-words text-xs font-black tracking-[0.2em] text-[var(--outline)]">
                   {label}
                 </p>
                 <p
-                  className="break-words text-2xl sm:text-3xl font-black leading-tight md:text-4xl"
+                  className="flex-1 break-words text-2xl sm:text-3xl font-black leading-tight md:text-4xl"
                 >
                   {value}
                 </p>

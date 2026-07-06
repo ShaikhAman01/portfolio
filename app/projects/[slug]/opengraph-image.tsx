@@ -1,0 +1,219 @@
+import { ImageResponse } from "next/og";
+import { profile, projects } from "@/lib/data";
+
+export const runtime = "nodejs";
+export const alt = "Project case study";
+export const size = {
+  width: 1200,
+  height: 630,
+};
+export const contentType = "image/png";
+
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const project = projects.find((item) => item.slug === slug);
+
+  if (!project) {
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            background: "#fafafa",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontFamily: "monospace",
+            fontSize: "48px",
+            fontWeight: 900,
+            color: "#18181b",
+          }}
+        >
+          {profile.brand}
+        </div>
+      ),
+      { ...size }
+    );
+  }
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          background: "#fafafa",
+          backgroundImage:
+            "repeating-linear-gradient(to bottom, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 2px, transparent 4px)",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          fontFamily: "monospace",
+          padding: "70px 90px",
+        }}
+      >
+        {/* LEFT PANE */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "58%",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", marginBottom: "36px" }}>
+            <span style={{ fontSize: "22px", fontWeight: 900, color: "#18181b", letterSpacing: "0.05em" }}>
+              {profile.brand}
+            </span>
+            <span style={{ fontSize: "13px", fontWeight: 700, color: "#71717a", letterSpacing: "0.1em", marginTop: "2px" }}>
+              PROJECT CASE STUDY
+            </span>
+          </div>
+
+          <div
+            style={{
+              color: "#2563eb",
+              fontSize: "19px",
+              fontWeight: 700,
+              display: "flex",
+              marginBottom: "14px",
+            }}
+          >
+            aman@system:~$ open projects/{project.slug}
+          </div>
+
+          <h1
+            style={{
+              fontSize: "62px",
+              fontWeight: 900,
+              color: "#18181b",
+              letterSpacing: "-0.03em",
+              margin: 0,
+              lineHeight: 1.1,
+              display: "flex",
+              marginBottom: "20px",
+            }}
+          >
+            {project.title}
+          </h1>
+
+          <div
+            style={{
+              display: "flex",
+              marginBottom: "24px",
+            }}
+          >
+            <span
+              style={{
+                border: "1px dashed #2563eb",
+                background: "rgba(37, 99, 235, 0.06)",
+                color: "#2563eb",
+                fontSize: "15px",
+                fontWeight: 900,
+                letterSpacing: "0.12em",
+                padding: "8px 14px",
+              }}
+            >
+              STATUS: {project.status}
+            </span>
+          </div>
+
+          <p
+            style={{
+              fontSize: "21px",
+              color: "#4b5563",
+              lineHeight: 1.55,
+              margin: 0,
+              display: "flex",
+              fontWeight: 700,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            {project.description}
+          </p>
+        </div>
+
+        {/* RIGHT PANE */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            width: "34%",
+            height: "100%",
+          }}
+        >
+          <div
+            style={{
+              marginBottom: "12px",
+              fontSize: "13px",
+              color: "#71717a",
+              fontWeight: 700,
+              letterSpacing: "0.05em",
+              display: "flex",
+            }}
+          >
+            project.metrics()
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              border: "1px solid #cbd5e1",
+              background: "#ffffff",
+              padding: "24px",
+              gap: "16px",
+              marginBottom: "18px",
+            }}
+          >
+            {project.metrics.map(([label, value]) => (
+              <div
+                key={label}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontSize: "15px",
+                  fontWeight: 700,
+                }}
+              >
+                <span style={{ color: "#71717a" }}>{label}</span>
+                <span style={{ color: "#2563eb" }}>{value}</span>
+              </div>
+            ))}
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "8px",
+            }}
+          >
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                style={{
+                  border: "1px solid #cbd5e1",
+                  background: "#ffffff",
+                  color: "#4b5563",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  letterSpacing: "0.06em",
+                  padding: "6px 10px",
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    ),
+    { ...size }
+  );
+}

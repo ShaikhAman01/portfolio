@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { DevToolsConsole } from "@/components/devtools-console";
 import { SudoMode } from "@/components/sudo-mode";
 import { MotionProvider } from "@/components/motion";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({ 
@@ -136,6 +137,8 @@ export default function RootLayout({
           {/* System Diagnostics */}
           <Footer />
         </MotionProvider>
+
+        <Analytics />
       </body>
     </html>
   );

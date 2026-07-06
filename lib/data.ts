@@ -7,7 +7,7 @@ export const profile = {
   location: "Hyderabad",
   email: "amanshaikh0025@gmail.com",
   terminal: "ssh aman@remote.terminal",
-  resumeUrl: "https://drive.google.com/uc?export=download&id=1UOF2R32ly093ZI2MDQ7zqp9KK_S41pEY",
+  resumeUrl: "/Shaikh_Aman_Resume.pdf",
   handle: "shaikhaman01",
   github: "https://github.com/ShaikhAman01",
   linkedin: "https://www.linkedin.com/in/shaikhaman01",
@@ -29,7 +29,7 @@ export const projects = [
     description:
       "An AI data assistant that turns plain-English questions into safe, validated SQL. Connects to five database engines, executes everything read-only, and returns charts plus insights grounded in real statistics — never hallucinated numbers.",
     longDescription:
-      "A multi-tenant Next.js + FastAPI platform that lets non-technical users query relational databases in plain English — built around a template-first SQL generation pipeline with an OpenAI-to-Gemini fallback chain, self-healing query repair, and a defense-in-depth execution sandbox.",
+      "A Next.js + FastAPI platform that lets non-technical users query relational databases in plain English, built on a template-first SQL pipeline with an OpenAI-to-Gemini fallback and layered safety checks.",
     tags: ["NEXT.JS", "FASTAPI", "POSTGRESQL", "AI_PIPELINE"],
     image: "/images/intelliquery.png",
     darkImage: "/images/intelliquery.png",
@@ -54,18 +54,18 @@ export const projects = [
       "NLP:SPACY"
     ],
     about: [
-      "IntelliQuery solves a real problem: the people who need answers from a database usually can't write SQL. A user connects a database (PostgreSQL, MySQL, SQL Server, SQLite, or CockroachDB), asks something like \"top 10 customers by revenue last month\", and gets validated SQL, live results, an auto-selected chart, and an AI summary — grounded in exact statistics computed server-side, so the model can't invent numbers.",
-      "The pipeline always uses the cheapest layer that can answer correctly: a deterministic template engine handles common questions with zero LLM tokens, a schema-aware LLM chain (OpenAI with Gemini fallback) handles the rest, and every statement — generated, cached, or user-edited — passes a SELECT-only validator before running inside a read-only transaction with statement timeouts and row caps."
+      "IntelliQuery lets people who can't write SQL still get answers from a database. Connect PostgreSQL, MySQL, SQL Server, SQLite, or CockroachDB, ask something like \"top 10 customers by revenue last month\", and get validated SQL, live results, a chart, and an AI summary grounded in real statistics.",
+      "Common questions are answered by a deterministic template engine with zero LLM tokens; the rest go through a schema-aware LLM chain (OpenAI with Gemini fallback). Every query passes a SELECT-only validator and runs in a read-only transaction with timeouts and row caps."
     ],
     challenges: [
-      "Containing LLM hallucination: schema-grounded prompts with sampled column values, pre-execution table validation, and a one-shot repair pass that fixes queries referencing non-existent tables or columns — surfacing a working answer instead of a raw database error.",
-      "Sharing one auth system across two runtimes: Better Auth (Next.js) creates sessions, and FastAPI validates the same session tokens against a shared PostgreSQL — no JWT bridging, no duplicated user store.",
-      "Making caching correct, not just fast: schema refreshes invalidate generated SQL for that connection, failed cached queries evict themselves and regenerate via the LLM, and empty results are never cached."
+      "Containing hallucination: prompts are grounded in the real schema, and a repair pass fixes queries that reference tables or columns that don't exist.",
+      "One auth across two runtimes: Better Auth creates sessions in Next.js, and FastAPI validates the same tokens against a shared PostgreSQL.",
+      "Cache correctness: schema changes invalidate cached SQL, failing queries evict themselves, and empty results are never cached."
     ],
     learnings: [
-      "Trustworthy AI features need verification layers around the model, not just better prompts — validate before execution, repair on failure, and ground insights in server-computed statistics.",
-      "Deterministic fast paths (the template engine, heuristic chart selection) cut more cost and latency than any prompt optimization did.",
-      "Defense in depth works: SELECT-only parsing, forbidden-keyword scans, read-only transactions, timeouts, and row caps each catch what the previous layer misses."
+      "Trustworthy AI features need verification around the model, not just better prompts.",
+      "Deterministic fast paths cut more cost and latency than any prompt tuning did.",
+      "Layered defenses work: each check catches what the previous one misses."
     ]
   },
   {
@@ -76,7 +76,7 @@ export const projects = [
     description:
       "A full-stack browser arcade — six mini-games plus a lofi chill mode — backed by Cloudflare Workers and D1. Guest-first auth, server-validated scores, and cheat-resistant leaderboards.",
     longDescription:
-      "Six single-player games with a real edge backend: Hono on Cloudflare Workers, D1 (SQLite) with Drizzle ORM, JWT auth, and Zod-validated score submission. Every game works fully offline — the backend is a sync layer, never a dependency.",
+      "Six single-player games with a real edge backend: Hono on Cloudflare Workers, D1 (SQLite) with Drizzle ORM, JWT auth, and Zod-validated score submission. Every game works fully offline.",
     tags: ["NEXT.JS", "CLOUDFLARE_WORKERS", "HONO", "D1_SQLITE"],
     image: "/images/pixelplayground.png",
     darkImage: "/images/pixelplayground.png",
@@ -101,18 +101,18 @@ export const projects = [
       "VALIDATION:ZOD"
     ],
     about: [
-      "PixelPlayground looks like a cozy game site, but the engineering substance is underneath. Nobody sees a login wall: a guest account is created silently on first visit, and upgrading to a username and password later keeps the same user row — so every score, stat, and streak survives without a data migration.",
-      "Scoring is server-authoritative. The client only reports what happened; the Worker validates each submission against per-game plausibility rules, computes Wordle streaks itself so they can't be farmed, and maintains write-time aggregates so leaderboards are simple indexed queries instead of scans over history."
+      "PixelPlayground looks like a cozy game site, but the engineering is underneath. There is no login wall: a guest account is created silently on first visit, and upgrading to a real account later keeps every score, stat, and streak.",
+      "Scoring is server-authoritative. The Worker validates each submission against per-game plausibility rules, computes streaks itself so they can't be faked, and keeps leaderboards as simple indexed queries."
     ],
     challenges: [
-      "bcrypt blew through the Workers CPU budget, so password hashing moved to PBKDF2 via the WebCrypto API — 100k iterations, per-user salts, and constant-time comparison.",
-      "One route serves six games, which naively shipped every player all six bundles — including a 14,907-word Wordle dictionary. Per-game dynamic imports cut each game to its own ~24–44 KB chunk, with the dictionary loading only on the Wordle page.",
-      "A shared store plus per-mount game engines caused a double-submission bug: fixed by resetting the store on unmount and only submitting on the game engine's own verdict."
+      "bcrypt blew through the Workers CPU budget, so password hashing moved to PBKDF2 via the WebCrypto API.",
+      "One route shipped all six game bundles at once; per-game code splitting cut each game to its own ~24-44 KB chunk.",
+      "A shared store caused double score submissions; fixed by resetting it on unmount and submitting only on the game engine's verdict."
     ],
     learnings: [
-      "Know your runtime — \"best practice\" (bcrypt) is contextual, and edge constraints forced better decisions.",
-      "Derive competitive values (streaks, bests) server-side from reported facts; never accept them from the client.",
-      "Fire-and-forget persistence keeps the game responsive even when the network isn't — the app degrades to exactly what it would be as a purely client-side app."
+      "Best practice is contextual: edge constraints made bcrypt the wrong answer.",
+      "Competitive values like streaks belong on the server, never trusted from the client.",
+      "Fire-and-forget persistence keeps games playable even when the network isn't."
     ]
   },
   {
@@ -123,7 +123,7 @@ export const projects = [
     description:
       "A Medium-style blogging platform with a rich-text editor, tags, likes, comments, and one-click AI post summaries — served from Cloudflare's edge.",
     longDescription:
-      "A React SPA backed by Hono on Cloudflare Workers, PostgreSQL via Prisma Accelerate, and JWT auth — with a shared Zod schema package published to npm so client and server always validate the same shapes.",
+      "A React SPA backed by Hono on Cloudflare Workers, PostgreSQL via Prisma Accelerate, and JWT auth, with a shared Zod schema package published to npm.",
     tags: ["REACT", "HONO", "CLOUDFLARE", "PRISMA"],
     image: "/images/inscribe.png",
     darkImage: "/images/inscribe.png",
@@ -137,7 +137,7 @@ export const projects = [
       ["AI_SUMMARIES", "WORKERS_AI"],
       ["VALIDATION", "SHARED_ZOD"],
       ["DB_ACCESS", "ACCELERATE"],
-      ["EDITOR", "QUILL+DOMPURIFY"]
+      ["EDITOR", "QUILL"]
     ],
     stack: [
       "APP:REACT+VITE",
@@ -149,18 +149,18 @@ export const projects = [
       "AI:WORKERS_AI"
     ],
     about: [
-      "Inscribe is a full-stack blogging platform: users write with a rich-text editor, tag posts, like and comment, and can summarize any post in two sentences using Cloudflare Workers AI (Llama 3) — wired in as a Worker binding, so there are no API keys to manage.",
-      "Because Workers can't hold TCP database connections, Prisma queries run through Accelerate's HTTP connection pool. Validation schemas live in a shared package published to npm (@shaikhaman/medium-common), so frontend types and backend validation can never drift apart."
+      "Inscribe is a full-stack blogging platform: users write with a rich-text editor, tag posts, like and comment, and can summarize any post in two sentences using Cloudflare Workers AI (Llama 3).",
+      "Workers can't hold TCP database connections, so Prisma runs through Accelerate's HTTP connection pool. Validation schemas live in a shared npm package (@shaikhaman/medium-common), so frontend and backend can never drift apart."
     ],
     challenges: [
-      "Running Prisma on an edge runtime with no TCP connections — solved with the Prisma edge client and Accelerate's connection pooling.",
-      "Rendering user-generated Quill HTML safely — every post is sanitized with DOMPurify before it touches the DOM.",
-      "Preventing duplicate likes under rapid clicks — a database-level unique constraint on (user, post) plus a toggle endpoint instead of blind inserts."
+      "Running Prisma on an edge runtime with no TCP connections: solved with the Prisma edge client and Accelerate.",
+      "Rendering user-generated HTML safely: every post is sanitized with DOMPurify before it touches the DOM.",
+      "Preventing duplicate likes under rapid clicks: a unique database constraint plus a toggle endpoint."
     ],
     learnings: [
-      "Shared validation is an architecture decision, not a convenience — one Zod source of truth eliminated a whole class of client/server drift.",
-      "Constraints belong in the database; UI-level guards alone can't prevent race conditions.",
-      "Edge runtimes reshape standard patterns — connection pooling, crypto, and bundling all needed edge-specific answers."
+      "Shared validation is an architecture decision: one Zod source of truth ended client/server drift.",
+      "Constraints belong in the database; UI guards can't stop race conditions.",
+      "Edge runtimes reshape standard patterns, from connection pooling to crypto."
     ]
   },
   {
@@ -171,7 +171,7 @@ export const projects = [
     description:
       "An e-commerce SPA for electronics with real-time product data, cart and checkout flows, and a role-gated admin dashboard — built on React and Firebase.",
     longDescription:
-      "A client-only commerce app: Firebase Auth (email/password + Google) with role-based routing, Firestore real-time listeners keeping products, orders, and users live, and a Redux cart persisted to localStorage.",
+      "A client-only commerce app: Firebase Auth with role-based routing, Firestore real-time listeners for live data, and a Redux cart persisted to localStorage.",
     tags: ["REACT", "FIREBASE", "REDUX", "TAILWIND"],
     image: "/images/quantum.png",
     darkImage: "/images/quantum.png",
@@ -183,7 +183,7 @@ export const projects = [
     docsUrl: "https://app.notion.com/p/amanshaikh/DOCUMENTATION-39526719f3cc80948445e0288c8da461",
     metrics: [
       ["DATA", "REALTIME"],
-      ["AUTH", "FIREBASE+GOOGLE"],
+      ["AUTH", "EMAIL+GOOGLE"],
       ["ROLES", "USER/ADMIN"],
       ["ADMIN", "FULL_CRUD"]
     ],
@@ -195,18 +195,18 @@ export const projects = [
       "STYLE:TAILWIND"
     ],
     about: [
-      "Quantum is a single-page e-commerce app with two sides: customers browse by category, search, manage a persistent cart, and place orders; admins manage the product catalog and watch every order and user update live through Firestore's real-time listeners.",
-      "State is deliberately split by shape: the cart lives in Redux Toolkit (serializable, persisted to localStorage), while live Firestore data flows through a context provider — each store matched to the data it holds."
+      "Quantum is a single-page e-commerce app with two sides: customers browse, search, manage a persistent cart, and place orders; admins manage the catalog and watch orders and users update live through Firestore listeners.",
+      "State is split by shape: the cart lives in Redux Toolkit and persists to localStorage, while live Firestore data flows through a context provider."
     ],
     challenges: [
-      "Firestore Timestamp objects broke Redux's serializability checks when products entered the cart — fixed by converting to epoch milliseconds at write time, with a conversion guard on reads.",
-      "Google sign-in can succeed for a user with no profile document; the login flow detects this and creates the Firestore user record on the fly.",
-      "Refreshing nested routes 404'd on static hosting until an SPA rewrite rule sent every path back to index.html."
+      "Firestore Timestamps broke Redux's serializability checks; fixed by storing epoch milliseconds instead.",
+      "Google sign-in could succeed with no profile document; the login flow now creates one on the fly.",
+      "Nested routes 404'd on refresh until an SPA rewrite rule sent every path back to index.html."
     ],
     learnings: [
-      "Not everything belongs in one store — choosing state tools per data shape beat forcing a single pattern.",
-      "Coercing types at the write boundary (prices as numbers, timestamps as millis) prevents whole categories of downstream bugs.",
-      "Client-side role checks are UX, not security — real enforcement belongs in Firestore Security Rules."
+      "Choose state tools per data shape instead of forcing everything into one store.",
+      "Coercing types at the write boundary prevents whole categories of downstream bugs.",
+      "Client-side role checks are UX, not security; real enforcement lives in Firestore Security Rules."
     ]
   }
 ];

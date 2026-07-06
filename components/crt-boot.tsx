@@ -1,17 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export function CRTBoot() {
-  const [mounted, setMounted] = useState(false);
   const [show, setShow] = useState(true);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted || !show) return null;
+  if (!show) return null;
 
   return (
     <motion.div
@@ -24,13 +19,8 @@ export function CRTBoot() {
       onAnimationComplete={() => setShow(false)}
     >
       <div className="font-mono text-sm font-black tracking-widest text-[var(--outline)] md:text-base">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.1 }}
-        >
-          &gt; Mounting userspace...
-        </motion.p>
+        {/* Visible in the server-rendered HTML so the boot screen is the first paint */}
+        <p>&gt; Mounting userspace...</p>
         
         <motion.p
           initial={{ opacity: 0 }}
