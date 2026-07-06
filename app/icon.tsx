@@ -11,19 +11,19 @@ export default function Icon() {
     (
       <div
         style={{
-          fontSize: 22,
-          background: "#1e293b", // Slate background matching your right-side pane style
+          fontSize: 19,
+          background: "#09090b",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#2563eb", // Matches your premium cobalt blue link color signature
+          color: "#34d399",
           fontWeight: 900,
-          borderRadius: "6px", // Gives it that modern rounded app look like the others
+          border: "2px solid #34d399",
         }}
       >
-        {/* Force typography strings to scale max fill thresholds inside browser tab engines */}
+        {/* Square terminal prompt: black box, emerald frame, high contrast at 16px */}
         <span style={{ transform: "translateY(-1px)" }}>&gt;_</span>
       </div>
     ),
