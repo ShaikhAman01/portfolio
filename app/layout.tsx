@@ -8,6 +8,7 @@ import { DevToolsConsole } from "@/components/devtools-console";
 import { SudoMode } from "@/components/sudo-mode";
 import { MotionProvider } from "@/components/motion";
 import { Analytics } from "@vercel/analytics/next";
+import { IdleTitle } from "@/components/idle-title";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({ 
@@ -125,6 +126,7 @@ export default function RootLayout({
           {/* Invisible System Payloads */}
           <DevToolsConsole />
           <SudoMode />
+          <IdleTitle />
 
           {/* Hardware Boot Emulation */}
           <CRTBoot />

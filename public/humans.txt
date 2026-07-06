@@ -1,0 +1,25 @@
+aman@system:~$ cat humans.txt
+
+/* ------------------------------------------- */
+/*  Hello, human. Nice curl.                    */
+/* ------------------------------------------- */
+
+/* TEAM */
+Developer: Shaikh Aman
+Role:      Full Stack Developer
+Location:  Hyderabad, India
+Contact:   amanshaikh0025@gmail.com
+Site:      https://www.shaikhaman.dev
+GitHub:    https://github.com/ShaikhAman01
+LinkedIn:  https://www.linkedin.com/in/shaikhaman01
+
+/* SITE */
+Stack:     Next.js, React, TypeScript, Tailwind CSS, Framer Motion
+Font:      JetBrains Mono
+Hosting:   Vercel
+
+/* THANKS */
+You, for reading the source.
+Currently available for hire: status=available_for_hire
+
+aman@system:~$ _

@@ -1,6 +1,7 @@
 import { Binary, History as HistoryIcon, Mail, Server } from "lucide-react";
 import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
+import { CopyEmailChip } from "@/components/copy-email";
 import { MotionDiv, Reveal } from "@/components/motion";
 import { ProjectCard } from "@/components/project-card";
 import { SectionTitle } from "@/components/section-title";
@@ -248,8 +249,8 @@ export default function Home() {
 
           {/* Direct channels — no form required */}
           <div className="mt-6 flex flex-wrap gap-3 font-mono text-xs">
+            <CopyEmailChip email={profile.email} />
             {[
-              { label: "EMAIL", href: `mailto:${profile.email}` },
               { label: "RESUME.PDF", href: profile.resumeUrl },
               { label: "GITHUB", href: profile.github },
               { label: "LINKEDIN", href: profile.linkedin }

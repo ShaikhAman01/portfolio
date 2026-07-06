@@ -59,6 +59,29 @@ body {
   font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
+/* Flat, square scrollbar matching the terminal frame */
+html {
+  scrollbar-color: var(--outline-variant) var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--outline-variant);
+  border: 3px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--outline);
+}
+
 /* Keyboard focus indicator, matching the accent color per theme */
 :focus-visible {
   outline: 2px solid var(--code-keyword);
