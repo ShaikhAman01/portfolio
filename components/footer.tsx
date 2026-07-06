@@ -10,7 +10,7 @@ export function Footer() {
         </Link>
         
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
-          <p>©2026 @{profile.handle}.</p>
+          <p>©{new Date().getFullYear()} @{profile.handle}.</p>
           <div className="flex items-center gap-3 text-sm font-black tracking-[0.18em]">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
@@ -20,7 +20,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex gap-8">
+        <div className="flex flex-wrap gap-8">
+          <a href={`mailto:${profile.email}`} className="transition hover:text-black dark:hover:text-white">EMAIL</a>
           <a href={profile.github} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">GITHUB</a>
           <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">LINKEDIN</a>
           <a href={profile.x} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">X</a>

@@ -1,5 +1,3 @@
-"use client";
-
 import { Binary, History as HistoryIcon, Mail, Server } from "lucide-react";
 import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
@@ -13,7 +11,7 @@ import { BlinkingCursor } from "@/components/blinking-cursor";
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col w-full overflow-x-hidden">
-      <main className="flex-1 bg-[var(--bg)] text-[var(--on-surface)] w-full">
+      <main id="main-content" className="flex-1 bg-[var(--bg)] text-[var(--on-surface)] w-full">
         {/* HERO SECTION */}
         <section className="mx-auto max-w-[105rem] px-4 py-8 sm:px-6 md:px-8 md:py-24">
           <Reveal>
@@ -50,7 +48,7 @@ export default function Home() {
                       <BlinkingCursor />
                     </h1>
 
-                    <p className="mt-6 md:mt-8 max-w-2xl text-md leading-7 sm:text-lg sm:leading-8 text-[var(--on-surface-variant)] md:text-xl">
+                    <p className="mt-6 md:mt-8 max-w-2xl text-base leading-7 sm:text-lg sm:leading-8 text-[var(--on-surface-variant)] md:text-xl">
                       Backend-first engineer focused on scalable APIs, realtime
                       applications, databases, and production-ready fullstack
                       products.
@@ -61,7 +59,7 @@ export default function Home() {
                       {/* Primary Solid Action Option */}
                       <a
                         href="#projects"
-                        className="bg-black px-6 py-4 md:px-8 md:py-5 text-center text-md font-black tracking-[0.14em] text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 w-full sm:w-auto"
+                        className="bg-black px-6 py-4 md:px-8 md:py-5 text-center text-base font-black tracking-[0.14em] text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 w-full sm:w-auto"
                       >
                         VIEW_PROJECTS →
                       </a>
@@ -69,7 +67,7 @@ export default function Home() {
                       {/* Secondary Outline Action Option */}
                       <a
                         href={profile.resumeUrl}
-                        className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 md:px-8 md:py-5 text-center text-md font-black tracking-[0.14em] text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto"
+                        className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 md:px-8 md:py-5 text-center text-base font-black tracking-[0.14em] text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto"
                       >
                         DOWNLOAD_CV.PDF
                       </a>
@@ -171,7 +169,7 @@ export default function Home() {
           <div className="grid gap-4 pt-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
             {skills.map(([label, value], index) => (
               <Reveal key={`${label}-${value}`} delay={index * 0.025}>
-                <div className="group relative border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 sm:p-8 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-blue-700 hover:shadow-[6px_6px_0_rgba(0,0,0,0.1)] dark:hover:border-emerald-400">
+                <div className="group relative border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 sm:p-8 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-blue-700 hover:shadow-[6px_6px_0_rgba(0,0,0,0.1)] dark:hover:border-emerald-400 dark:hover:shadow-[6px_6px_0_rgba(255,255,255,0.08)]">
                   <div className="absolute right-6 top-6 h-2 w-2 bg-[var(--outline-variant)] transition-colors duration-300 group-hover:bg-blue-700 dark:group-hover:bg-emerald-400" />
                   <p className="mb-5 flex items-center gap-2 text-sm font-black tracking-[0.18em] text-[var(--outline)] transition-colors duration-300 group-hover:text-[var(--on-surface)]">
                     <span className="text-blue-700 dark:text-emerald-400">
@@ -202,11 +200,11 @@ export default function Home() {
                     <p className="mt-2 sm:mt-3 text-lg sm:text-xl font-black tracking-[0.12em] text-blue-700 dark:text-emerald-400">
                       {item.org}
                     </p>
-                    <p className="mt-4 sm:mt-5 text-md sm:text-xl leading-7 sm:leading-8 text-[var(--on-surface-variant)]">
+                    <p className="mt-4 sm:mt-5 text-base sm:text-xl leading-7 sm:leading-8 text-[var(--on-surface-variant)]">
                       {item.body}
                     </p>
                     {"highlights" in item && (
-                      <ul className="mt-6 max-w-5xl space-y-3 text-md sm:text-lg leading-7 sm:leading-8 text-[var(--on-surface-variant)]">
+                      <ul className="mt-6 max-w-5xl space-y-3 text-base sm:text-lg leading-7 sm:leading-8 text-[var(--on-surface-variant)]">
                         {item.highlights.map((highlight) => (
                           <li key={highlight} className="break-words">→ {highlight}</li>
                         ))}
@@ -231,7 +229,7 @@ export default function Home() {
                       </div>
                     )}
                   </div>
-                  <p className="text-md md:text-xl font-bold tracking-[0.12em] text-[var(--outline)] md:text-right shrink-0 mt-2 md:mt-0">
+                  <p className="text-base md:text-xl font-bold tracking-[0.12em] text-[var(--outline)] md:text-right shrink-0 mt-2 md:mt-0">
                     {item.date}
                   </p>
                 </article>
@@ -243,6 +241,32 @@ export default function Home() {
         {/* CONTACT SECTION */}
         <section id="contact" className="mx-auto max-w-[105rem] px-4 py-12 sm:px-6 md:px-8 pb-24 md:pb-32">
           <SectionTitle icon={Mail}>/DEV/TTY_CONTACT</SectionTitle>
+
+          <p className="max-w-3xl text-base sm:text-lg leading-7 sm:leading-8 text-[var(--on-surface-variant)]">
+            {profile.contactDescription}
+          </p>
+
+          {/* Direct channels — no form required */}
+          <div className="mt-6 flex flex-wrap gap-3 font-mono text-xs">
+            {[
+              { label: "EMAIL", href: `mailto:${profile.email}` },
+              { label: "RESUME.PDF", href: profile.resumeUrl },
+              { label: "GITHUB", href: profile.github },
+              { label: "LINKEDIN", href: profile.linkedin }
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                className="inline-flex items-center gap-1.5 border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] px-4 py-2 font-bold uppercase tracking-wider text-[var(--on-surface-variant)] transition hover:border-blue-700 hover:text-blue-700 dark:hover:border-emerald-400 dark:hover:text-emerald-400 hover:shadow-[2px_2px_0_rgba(0,0,0,0.05)]"
+              >
+                <span className="text-blue-700 dark:text-emerald-400">&gt;</span>
+                <span className="underline decoration-dotted underline-offset-4">{link.label}</span>
+              </a>
+            ))}
+          </div>
+
           <ContactForm />
         </section>
       </main>

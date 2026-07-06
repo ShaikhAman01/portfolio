@@ -57,7 +57,7 @@ export function ContactForm() {
         <p className="text-xl sm:text-2xl font-black tracking-[0.15em] text-[var(--on-surface)] break-words">
           INITIATE_CONNECTION
         </p>
-        <p className="mt-2 text-xs sm:text-sm font-black tracking-widest text-[var(--outline)] break-words">
+        <p aria-live="polite" className="mt-2 text-xs sm:text-sm font-black tracking-widest text-[var(--outline)] break-words">
           STATUS: {isSubmitting ? "TRANSMITTING_PACKETS..." : result === "SUCCESS" ? "UPLOAD_COMPLETE" : "AWAITING_INPUT..."}
         </p>
       </div>
@@ -75,10 +75,11 @@ export function ContactForm() {
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-8 sm:gap-10">
           <div className="group flex flex-col gap-2 sm:gap-3">
-            <label className="text-xs sm:text-sm font-black tracking-[0.1em] text-[var(--outline)] transition-colors group-focus-within:text-blue-700 dark:group-focus-within:text-emerald-400 break-words">
+            <label htmlFor="contact-email" className="text-xs sm:text-sm font-black tracking-[0.1em] text-[var(--outline)] transition-colors group-focus-within:text-blue-700 dark:group-focus-within:text-emerald-400 break-words">
               [01] RETURN_ADDRESS (EMAIL)
             </label>
             <input
+              id="contact-email"
               type="email"
               name="email"
               required
@@ -89,10 +90,11 @@ export function ContactForm() {
           </div>
 
           <div className="group flex flex-col gap-2 sm:gap-3">
-            <label className="text-xs sm:text-sm font-black tracking-[0.1em] text-[var(--outline)] transition-colors group-focus-within:text-blue-700 dark:group-focus-within:text-emerald-400 break-words">
+            <label htmlFor="contact-message" className="text-xs sm:text-sm font-black tracking-[0.1em] text-[var(--outline)] transition-colors group-focus-within:text-blue-700 dark:group-focus-within:text-emerald-400 break-words">
               [02] PAYLOAD_DATA (MESSAGE)
             </label>
             <textarea
+              id="contact-message"
               name="message"
               required
               rows={5}
@@ -112,7 +114,7 @@ export function ContactForm() {
             </button>
 
             {result === "ERROR" && (
-              <p className="font-black text-red-500 animate-pulse text-xs sm:text-sm tracking-widest break-words">
+              <p role="alert" className="font-black text-red-500 animate-pulse text-xs sm:text-sm tracking-widest break-words">
                 ! UPLINK_FAILURE: RETRY_TRANSMISSION
               </p>
             )}

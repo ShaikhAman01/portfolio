@@ -3,7 +3,7 @@ import { BlinkingCursor } from "@/components/blinking-cursor";
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen flex-col bg-[var(--bg)] p-6 text-[var(--on-surface)] md:p-12 lg:p-24">
+    <main id="main-content" className="flex min-h-screen flex-col bg-[var(--bg)] p-6 text-[var(--on-surface)] md:p-12 lg:p-24">
       <div className="mx-auto w-full max-w-[105rem]">
         <div className="mb-10 border border-red-700 bg-[var(--surface-container-lowest)] p-8 shadow-[8px_8px_0_rgba(185,28,28,0.2)] dark:border-red-900 dark:shadow-[8px_8px_0_rgba(153,27,27,0.4)]">
           <p className="mb-4 text-xl font-black tracking-widest text-red-700 dark:text-red-500 md:text-3xl">

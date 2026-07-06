@@ -10,6 +10,15 @@ export function SudoMode() {
   useEffect(() => {
     let sequence = "";
     const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
       sequence = (sequence + e.key.toLowerCase()).slice(-4);
       if (sequence === "sudo") {
         setIsRoot(true);
@@ -39,10 +48,10 @@ export function SudoMode() {
             </p>
             
             <div className="flex flex-col gap-4 sm:flex-row">
-              {/* Replace # with your actual resume PDF link */}
-              <a 
+              <a
                 href={profile.resumeUrl}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="border border-emerald-500 bg-transparent px-8 py-4 text-center font-black tracking-[0.15em] transition hover:bg-emerald-500 hover:text-black"
               >
                 [ DECRYPT_RESUME ]

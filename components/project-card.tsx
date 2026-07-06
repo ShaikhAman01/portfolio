@@ -9,7 +9,7 @@ type Project = (typeof projects)[number];
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <Reveal delay={index * 0.08} className="h-full">
-      <article className="h-full flex flex-col group border border-black bg-[var(--surface-container-lowest)] shadow-[6px_6px_0_rgba(0,0,0,0.08)] transition duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:border-black hover:shadow-[10px_10px_0_rgba(0,0,0,0.16)] dark:border-white dark:bg-[var(--surface-container-lowest)] dark:hover:border-white relative">
+      <article className="h-full flex flex-col group border border-black bg-[var(--surface-container-lowest)] shadow-[6px_6px_0_rgba(0,0,0,0.08)] transition duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:border-black hover:shadow-[10px_10px_0_rgba(0,0,0,0.16)] dark:border-white dark:bg-[var(--surface-container-lowest)] dark:hover:border-white dark:shadow-[6px_6px_0_rgba(255,255,255,0.06)] dark:hover:shadow-[10px_10px_0_rgba(255,255,255,0.12)] relative">
         
         {/* Image Section */}
         <Link href={`/projects/${project.slug}`} className="block">

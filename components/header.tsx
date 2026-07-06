@@ -97,6 +97,14 @@ export function Header({ active = "" }: { active?: string }) {
               </Link>
             );
           })}
+          <a
+            href={profile.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition text-blue-700 hover:text-black dark:text-emerald-400 dark:hover:text-white"
+          >
+            Resume ↓
+          </a>
         </nav>
         
         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
@@ -114,8 +122,9 @@ export function Header({ active = "" }: { active?: string }) {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle structural menu tree"
-            className="flex items-center justify-center border border-[var(--outline-variant)] h-12 w-12 text-[var(--on-surface)] hover:bg-[var(--outline-variant)]/20 lg:hidden flex-shrink-0"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+            className="flex items-center justify-center border border-[var(--outline-variant)] h-12 w-12 text-[var(--on-surface)] transition-colors hover:bg-[var(--outline-variant)]/20 lg:hidden flex-shrink-0"
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -123,7 +132,7 @@ export function Header({ active = "" }: { active?: string }) {
       </div>
 
       {isMenuOpen && (
-        <nav className="w-full border-t border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] px-5 py-6 flex flex-col gap-6 text-md font-black text-[var(--outline)] dark:text-[var(--on-surface-variant)] lg:hidden shadow-[0_8px_16px_rgba(0,0,0,0.06)] animate-in fade-in slide-in-from-top-2 duration-200">
+        <nav className="w-full border-t border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] px-5 py-6 flex flex-col gap-6 text-base font-black text-[var(--outline)] dark:text-[var(--on-surface-variant)] lg:hidden shadow-[0_8px_16px_rgba(0,0,0,0.06)] animate-in fade-in slide-in-from-top-2 duration-200">
           {nav.map(([label, href]) => {
             const isActive = currentActive === label;
             return (
@@ -146,6 +155,16 @@ export function Header({ active = "" }: { active?: string }) {
             );
           })}
           
+          <a
+            href={profile.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsMenuOpen(false)}
+            className="w-full py-2 transition text-blue-700 hover:text-black dark:text-emerald-400 dark:hover:text-white"
+          >
+            Resume ↓
+          </a>
+
           <Link
             href="/#contact"
             onClick={() => setIsMenuOpen(false)}

@@ -1,21 +1,48 @@
-"use client";
-
 import { Info, Layers, AlertTriangle, Lightbulb } from "lucide-react";
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { use } from "react"; 
+import { MetricBar } from "@/components/metric-bar";
 import { Reveal } from "@/components/motion";
 import { SectionTitle } from "@/components/section-title";
-import { projects } from "@/lib/data";
+import { profile, projects } from "@/lib/data";
 
-export default function ProjectPage({
+export function generateStaticParams() {
+  return projects.map((project) => ({ slug: project.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((item) => item.slug === slug);
+
+  if (!project) {
+    return {};
+  }
+
+  return {
+    title: `${project.title} — ${project.status.replaceAll("_", " ")}`,
+    description: project.description,
+    alternates: { canonical: `/projects/${project.slug}` },
+    openGraph: {
+      title: `${project.title} | ${profile.name}`,
+      description: project.description,
+      url: `/projects/${project.slug}`,
+      type: "article",
+    },
+  };
+}
+
+export default async function ProjectPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = use(params);
+  const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
 
   if (!project) {
@@ -23,10 +50,11 @@ export default function ProjectPage({
   }
 
   const hasLiveLink = "liveUrl" in project && project.liveUrl;
+  const hasDocsLink = project.docsUrl.startsWith("http");
 
   return (
     <div className="w-full max-w-full overflow-x-hidden flex min-h-screen flex-col bg-[var(--bg)] text-[var(--on-surface)]">
-      <main className="w-full flex-1">
+      <main id="main-content" className="w-full flex-1">
         
         {/* TERMINAL BREADCRUMB NAVIGATION */}
         <nav className="mx-auto max-w-[105rem] px-5 pt-24 md:px-8 md:pt-32">
@@ -78,7 +106,7 @@ export default function ProjectPage({
               >
                 VIEW_SOURCE &lt;/&gt;
               </a>
-              {hasLiveLink ? (
+              {hasLiveLink && (
                 <a
                   href={project.liveUrl}
                   target="_blank"
@@ -87,10 +115,13 @@ export default function ProjectPage({
                 >
                   LAUNCH_LIVE_APP →
                 </a>
-              ) : (
+              )}
+              {hasDocsLink && (
                 <a
                   href={project.docsUrl}
-                  className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="border border-dashed border-blue-700 bg-blue-50/50 px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-blue-700 transition hover:bg-blue-700 hover:text-white dark:border-emerald-400 dark:bg-emerald-950/20 dark:text-emerald-400 dark:hover:bg-emerald-400 dark:hover:text-black"
                 >
                   EXPLORE_DOCS ▤
                 </a>
@@ -99,7 +130,7 @@ export default function ProjectPage({
           </Reveal>
           
           <Reveal delay={0.1}>
-            <div className="relative aspect-video w-full overflow-hidden border border-[var(--outline-variant)] bg-zinc-950 p-1 sm:p-2 shadow-[6px_6px_0_rgba(0,0,0,0.06)] sm:shadow-[10px_10px_0_rgba(0,0,0,0.1)] dark:border-zinc-800">
+            <div className="relative aspect-video w-full overflow-hidden border border-[var(--outline-variant)] bg-zinc-950 p-1 sm:p-2 shadow-[6px_6px_0_rgba(0,0,0,0.06)] sm:shadow-[10px_10px_0_rgba(0,0,0,0.1)] dark:border-zinc-800 dark:shadow-[6px_6px_0_rgba(255,255,255,0.05)] dark:sm:shadow-[10px_10px_0_rgba(255,255,255,0.08)]">
               <Image
                 src={project.heroImage}
                 alt={`${project.title} system preview`}
@@ -134,18 +165,7 @@ export default function ProjectPage({
                 >
                   {value}
                 </p>
-                <div className="mt-6 sm:mt-8 h-[2px] w-full bg-[var(--outline-variant)]/30">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: "70%" }}
-                    transition={{
-                      duration: 1.5,
-                      delay: index * 0.1 + 0.5,
-                      ease: "circOut",
-                    }}
-                    className="h-full bg-blue-700 dark:bg-emerald-400"
-                  />
-                </div>
+                <MetricBar delay={index * 0.1 + 0.5} />
               </div>
             </Reveal>
           ))}
@@ -185,7 +205,7 @@ export default function ProjectPage({
                       <span className="text-[10px] font-bold tracking-widest text-[var(--outline)] uppercase group-hover:text-blue-700 dark:group-hover:text-emerald-400">
                         // {key.trim()}
                       </span>
-                      <span className="mt-1 sm:mt-2 text-md sm:text-lg font-black tracking-wide uppercase break-words text-[var(--on-surface)]">
+                      <span className="mt-1 sm:mt-2 text-base sm:text-lg font-black tracking-wide uppercase break-words text-[var(--on-surface)]">
                         {val.trim()}
                       </span>
                     </div>
