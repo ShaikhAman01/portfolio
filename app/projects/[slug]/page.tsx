@@ -80,7 +80,7 @@ export default async function ProjectPage({
         </nav>
 
         {/* HERO SECTION */}
-        <section className="mx-auto grid max-w-[105rem] gap-8 px-5 pb-12 pt-8 md:px-8 md:pb-24 md:pt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
+        <section className="mx-auto grid max-w-[105rem] gap-8 px-5 pb-12 pt-8 md:px-8 md:pb-24 md:pt-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12">
           <Reveal>
             <div className="mb-6 flex flex-wrap items-center gap-3 sm:gap-4">
               <span className="bg-[var(--on-surface)] px-4 py-2 sm:px-5 sm:py-3 text-sm sm:text-lg font-bold tracking-[0.16em] text-[var(--surface-container-lowest)]">
@@ -90,7 +90,7 @@ export default async function ProjectPage({
                 STATUS: {project.status}
               </span>
             </div>
-            <h1 className="break-words text-4xl font-black tracking-tight sm:text-6xl md:text-8xl xl:text-9xl leading-[0.95]">
+            <h1 className="break-words text-4xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-5xl xl:text-6xl 2xl:text-7xl leading-[0.95]">
               {project.title}
             </h1>
             <p className="mt-6 sm:mt-10 max-w-5xl text-lg sm:text-2xl xl:text-3xl leading-[1.6] sm:leading-[1.75] text-[var(--on-surface-variant)]">
