@@ -9,7 +9,7 @@ Developer: Shaikh Aman
 Role:      Full Stack Developer
 Location:  Hyderabad, India
 Contact:   amanshaikh0025@gmail.com
-Site:      https://www.shaikhaman.dev
+Site:      https://www.shaikhaman.in
 GitHub:    https://github.com/ShaikhAman01
 LinkedIn:  https://www.linkedin.com/in/shaikhaman01
 

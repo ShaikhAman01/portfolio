@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.shaikhaman.dev/sitemap.xml",
+    sitemap: "https://www.shaikhaman.in/sitemap.xml",
   };
 }

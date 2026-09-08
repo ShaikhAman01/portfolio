@@ -70,9 +70,9 @@ export function Header({ active = "" }: { active?: string }) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[var(--outline-variant)] bg-[var(--surface-container-lowest)]/95 backdrop-blur dark:border-[var(--outline-variant)] dark:bg-[var(--surface-container-lowest)]/95">
-      <div className="mx-auto flex w-full max-w-[105rem] items-center justify-between gap-4 px-4 py-4 md:gap-6 md:px-8">
-        
-        <Link href="/" className="text-xl font-black tracking-tight sm:text-2xl md:text-4xl whitespace-nowrap">
+      <div className="mx-auto flex w-full max-w-[105rem] items-center justify-between gap-3 px-4 py-4 sm:gap-4 md:gap-6 md:px-8">
+
+        <Link href="/" className="min-w-0 truncate text-xl font-black tracking-tight sm:text-2xl md:text-4xl whitespace-nowrap">
           {profile.brand}
         </Link>
         

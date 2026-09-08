@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/lib/data";
 
-const BASE_URL = "https://www.shaikhaman.dev";
+const BASE_URL = "https://www.shaikhaman.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

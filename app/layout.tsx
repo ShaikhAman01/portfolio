@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   description: profile.heroDescription,
 
-  metadataBase: new URL("https://www.shaikhaman.dev"),
+  metadataBase: new URL("https://www.shaikhaman.in"),
   alternates: { canonical: "/" },
 
   keywords: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "Cloudflare Workers",
     "Hyderabad",
   ],
-  authors: [{ name: profile.name, url: "https://www.shaikhaman.dev" }],
+  authors: [{ name: profile.name, url: "https://www.shaikhaman.in" }],
   creator: profile.name,
 
   openGraph: {
@@ -70,7 +70,7 @@ const personJsonLd = {
   name: profile.name,
   jobTitle: profile.role,
   email: `mailto:${profile.email}`,
-  url: "https://www.shaikhaman.dev",
+  url: "https://www.shaikhaman.in",
   address: {
     "@type": "PostalAddress",
     addressLocality: profile.location,

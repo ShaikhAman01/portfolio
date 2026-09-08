@@ -37,7 +37,7 @@ export const projects = [
     heroDarkImage: "/images/intelliquery.png",
     action: "VIEW_CASE_STUDY",
     sourceUrl: "https://github.com/ShaikhAman01/Intelliquery",
-    liveUrl: "https://intelliquery.shaikhaman.dev",
+    liveUrl: "https://intelliquery.shaikhaman.in",
     docsUrl: "https://app.notion.com/p/amanshaikh/PROJECT_DOCUMENTATION-39326719f3cc803ab075e9aa5d23696d",
     metrics: [
       ["DB_ENGINES", "5"],
@@ -84,7 +84,7 @@ export const projects = [
     heroDarkImage: "/images/pixelplayground.png",
     action: "VIEW_CASE_STUDY",
     sourceUrl: "https://github.com/ShaikhAman01/PixelPlayground",
-    liveUrl: "https://pixelplayground.shaikhaman.dev",
+    liveUrl: "https://pixelplayground.shaikhaman.in",
     docsUrl: "https://app.notion.com/p/amanshaikh/TECHNICAL_DOCUMENTATION-39526719f3cc80c896f6e74a230477ab",
     metrics: [
       ["GAMES", "6"],
@@ -131,7 +131,7 @@ export const projects = [
     heroDarkImage: "/images/inscribe.png",
     action: "VIEW_CASE_STUDY",
     sourceUrl: "https://github.com/ShaikhAman01/inscribe",
-    liveUrl: "https://inscribe.shaikhaman.dev",
+    liveUrl: "https://inscribe.shaikhaman.in",
     docsUrl: "https://app.notion.com/p/amanshaikh/Inscribe-39526719f3cc80e3977ec4c2a543219f",
     metrics: [
       ["AI_SUMMARIES", "WORKERS_AI"],
@@ -179,7 +179,7 @@ export const projects = [
     heroDarkImage: "/images/quantum.png",
     action: "VIEW_CASE_STUDY",
     sourceUrl: "https://github.com/ShaikhAman01/Quantum-e-commerce",
-    liveUrl: "https://quantum.shaikhaman.dev",
+    liveUrl: "https://quantum.shaikhaman.in",
     docsUrl: "https://app.notion.com/p/amanshaikh/DOCUMENTATION-39526719f3cc80948445e0288c8da461",
     metrics: [
       ["DATA", "REALTIME"],
@@ -224,7 +224,6 @@ export const skills = [
   ["EDGE", "Cloudflare Workers"],
   ["TOOL", "Docker"],
   ["VCS", "Git"],
-  ["LANGUAGE", "Java"],
   ["LANGUAGE", "Python"],
   ["BACKEND", "FastAPI"]
 ];

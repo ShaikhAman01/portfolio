@@ -101,13 +101,13 @@ export default function Home() {
                       </div>
 
                       {/* Image container layout frame */}
-                      <div className="relative w-full overflow-hidden border border-transparent transition-colors duration-300 group-hover:border-[var(--outline-variant)] bg-black dark:bg-zinc-200">
+                      <div className="relative w-full overflow-hidden border border-[var(--outline-variant)] transition-colors duration-300 group-hover:border-blue-700 dark:border-transparent dark:group-hover:border-[var(--outline-variant)] bg-zinc-300 dark:bg-zinc-200">
                         {/* Hover-Activated Adaptive Scanline overlay */}
                         <div className="animate-terminal-scan" />
 
                         {/* RETRO DITHERING MATRIX OVERLAY */}
                         <div
-                          className="absolute inset-0 z-10 pointer-events-none mix-blend-multiply opacity-40 dark:opacity-20"
+                          className="absolute inset-0 z-10 pointer-events-none mix-blend-multiply opacity-25 dark:opacity-20"
                           style={{
                             backgroundImage: `radial-gradient(circle, #000 25%, transparent 26%), radial-gradient(circle, #000 25%, transparent 26%)`,
                             backgroundSize: "4px 4px",

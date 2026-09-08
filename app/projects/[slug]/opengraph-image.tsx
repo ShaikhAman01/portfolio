@@ -94,7 +94,7 @@ export default async function Image({
               <div style={{ width: "14px", height: "14px", borderRadius: "9999px", background: "#34d399" }} />
             </div>
             <span style={{ fontSize: "15px", fontWeight: 700, color: "#71717a", letterSpacing: "0.1em" }}>
-              shaikhaman.dev/projects/{project.slug}
+              shaikhaman.in/projects/{project.slug}
             </span>
           </div>
 
