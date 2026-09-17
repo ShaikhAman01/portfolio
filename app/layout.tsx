@@ -8,7 +8,9 @@ import { DevToolsConsole } from "@/components/devtools-console";
 import { SudoMode } from "@/components/sudo-mode";
 import { MotionProvider } from "@/components/motion";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { IdleTitle } from "@/components/idle-title";
+import { StickyCTA } from "@/components/sticky-cta";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({ 
@@ -138,9 +140,13 @@ export default function RootLayout({
 
           {/* System Diagnostics */}
           <Footer />
+
+          {/* Mobile-only persistent CTA */}
+          <StickyCTA />
         </MotionProvider>
 
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
