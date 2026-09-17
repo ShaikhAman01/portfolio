@@ -2,9 +2,45 @@
 
 import { useState } from "react";
 
+// Email cap is the RFC 5321 path limit; the message cap is generous for a
+// first contact while keeping a pasted novel out of the inbox.
+const MAX_EMAIL = 254;
+const MAX_MESSAGE = 2000;
+const WARN_AT = MAX_MESSAGE * 0.9;
+
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [result, setResult] = useState<"IDLE" | "SUCCESS" | "ERROR">("IDLE");
+  const [focused, setFocused] = useState<"email" | "message" | null>(null);
+  // messageLength is the RAW length so it matches what maxLength enforces;
+  // the *Filled flags ignore whitespace so " " never counts as input.
+  const [emailFilled, setEmailFilled] = useState(false);
+  const [messageFilled, setMessageFilled] = useState(false);
+  const [messageLength, setMessageLength] = useState(0);
+
+  // Terminal chatter for the eye. The screen-reader announcement is separate
+  // and deliberately stable, so typing doesn't spam the live region.
+  const visualStatus = (() => {
+    if (isSubmitting) return "TRANSMITTING_PACKETS...";
+    if (result === "SUCCESS") return "UPLOAD_COMPLETE";
+    if (result === "ERROR") return "TRANSMISSION_FAILED";
+    if (focused === "email") return "READING_RETURN_ADDRESS...";
+    if (focused === "message")
+      return messageLength >= MAX_MESSAGE
+        ? `BUFFER_FULL [${MAX_MESSAGE}/${MAX_MESSAGE} BYTES]`
+        : `BUFFERING_PAYLOAD... [${messageLength}/${MAX_MESSAGE} BYTES]`;
+    if (emailFilled && messageFilled) return "READY_TO_TRANSMIT";
+    if (emailFilled || messageFilled) return "INPUT_INCOMPLETE...";
+    return "AWAITING_INPUT...";
+  })();
+
+  const announced = isSubmitting
+    ? "Sending your message."
+    : result === "SUCCESS"
+      ? "Message sent."
+      : result === "ERROR"
+        ? "Message failed to send. Please try again."
+        : "";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,7 +75,10 @@ export function ContactForm() {
 
       if (response.status === 200 && json.success) {
         setResult("SUCCESS");
-        form.reset(); 
+        form.reset();
+        setEmailFilled(false);
+        setMessageFilled(false);
+        setMessageLength(0);
       } else {
         setResult("ERROR");
       }
@@ -57,8 +96,24 @@ export function ContactForm() {
         <p className="text-xl sm:text-2xl font-black tracking-[0.15em] text-[var(--on-surface)] break-words">
           INITIATE_CONNECTION
         </p>
-        <p aria-live="polite" className="mt-2 text-xs sm:text-sm font-black tracking-widest text-[var(--outline)] break-words">
-          STATUS: {isSubmitting ? "TRANSMITTING_PACKETS..." : result === "SUCCESS" ? "UPLOAD_COMPLETE" : "AWAITING_INPUT..."}
+        <p
+          aria-hidden="true"
+          className="mt-2 text-xs sm:text-sm font-black tracking-widest text-[var(--outline)] break-words"
+        >
+          STATUS:{" "}
+          <span
+            className={
+              messageLength >= WARN_AT
+                ? "text-amber-600 dark:text-amber-400"
+                : "text-blue-700 dark:text-emerald-400"
+            }
+          >
+            {visualStatus}
+          </span>
+        </p>
+
+        <p aria-live="polite" className="sr-only">
+          {announced}
         </p>
       </div>
 
@@ -66,7 +121,12 @@ export function ContactForm() {
         <div className="border border-emerald-500 bg-emerald-500/10 p-6 sm:p-8 font-black text-emerald-500 break-words">
           <p className="text-base sm:text-xl">&gt; MESSAGE_RECEIVED. THE_OPERATOR_HAS_BEEN_NOTIFIED.</p>
           <button 
-            onClick={() => setResult("IDLE")} 
+            onClick={() => {
+              setResult("IDLE");
+              setEmailFilled(false);
+              setMessageFilled(false);
+              setMessageLength(0);
+            }} 
             className="mt-6 block text-xs underline underline-offset-8 decoration-dotted hover:text-emerald-400 transition-colors"
           >
             [ SEND_ANOTHER_PAYLOAD ]
@@ -84,6 +144,10 @@ export function ContactForm() {
               name="email"
               required
               disabled={isSubmitting}
+              onFocus={() => setFocused("email")}
+              onBlur={() => setFocused(null)}
+              maxLength={MAX_EMAIL}
+              onChange={(e) => setEmailFilled(e.target.value.trim().length > 0)}
               className="w-full border-b border-[var(--outline-variant)] bg-transparent py-2 text-base sm:text-xl outline-none transition focus:border-blue-700 dark:focus:border-emerald-400 disabled:opacity-50 rounded-none placeholder:text-zinc-400/50"
               placeholder="jane@company.com"
             />
@@ -99,6 +163,13 @@ export function ContactForm() {
               required
               rows={5}
               disabled={isSubmitting}
+              onFocus={() => setFocused("message")}
+              onBlur={() => setFocused(null)}
+              maxLength={MAX_MESSAGE}
+              onChange={(e) => {
+                setMessageLength(e.target.value.length);
+                setMessageFilled(e.target.value.trim().length > 0);
+              }}
               className="w-full resize-none border-b border-[var(--outline-variant)] bg-transparent py-2 text-base sm:text-xl outline-none transition focus:border-blue-700 dark:focus:border-emerald-400 disabled:opacity-50 rounded-none placeholder:text-zinc-400/50"
               placeholder="System integration request..."
             />

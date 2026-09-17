@@ -87,8 +87,8 @@ export default function PrivacyPage() {
             warehouse, and nobody A/B testing the colour of a button at you. If
             you email me, I get the email. That is genuinely the whole story.
             The seven sections below exist because I got curious about what a
-            privacy policy would even say for a site like this, and by the time
-            I found out I had already written most of one.
+            privacy policy would even say for a site like this, so I just made
+            one.
           </p>
         </div>
 
