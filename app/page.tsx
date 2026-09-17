@@ -16,20 +16,21 @@ export default function Home() {
         {/* HERO SECTION */}
         <section className="mx-auto max-w-[105rem] px-4 py-8 sm:px-6 md:px-8 md:py-24">
           <Reveal>
-            <div className="border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-5 sm:p-7 md:p-12">
+            <div className="flex flex-col border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-5 sm:p-7 md:p-12">
               {/* Window UI Top Controls */}
-              <div className="mb-8 md:mb-12 flex gap-3">
+              <div className="order-1 mb-8 md:mb-12 flex gap-3">
                 <span className="h-3.5 w-3.5 rounded-full bg-red-500" />
                 <span className="h-3.5 w-3.5 rounded-full bg-blue-400" />
                 <span className="h-3.5 w-3.5 rounded-full bg-emerald-400" />
               </div>
 
-              <div className="w-full overflow-x-auto scrollbar-none">
+              {/* Demoted below the headline on phones so the CTA clears the fold */}
+              <div className="order-3 w-full overflow-x-auto scrollbar-none sm:order-2">
                 <HeroCode />
               </div>
 
               {/* Terminal Panel Split Grid Frame */}
-              <div className="mt-10 border border-[var(--outline-variant)]">
+              <div className="order-2 border border-[var(--outline-variant)] sm:order-3 sm:mt-10">
                 <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_0.9fr]">
                   {/* LEFT PANE: Typography & Action Handles */}
                   <MotionDiv

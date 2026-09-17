@@ -22,7 +22,7 @@ export function HeroCode() {
       variants={container}
       initial="hidden"
       animate="show"
-      className="mb-12 w-full overflow-x-hidden whitespace-normal rounded-lg bg-zinc-50/50 p-4 sm:p-6 font-mono text-xs xs:text-sm sm:text-base font-semibold leading-6 xs:leading-7 sm:leading-9 md:text-xl md:leading-10 tracking-normal text-[var(--on-surface)] dark:bg-zinc-900/30 border border-[var(--outline-variant)]/30"
+      className="mt-10 mb-0 sm:mt-0 sm:mb-12 w-full overflow-x-hidden whitespace-normal rounded-lg bg-zinc-50/50 p-4 sm:p-6 font-mono text-xs xs:text-sm sm:text-base font-semibold leading-6 xs:leading-7 sm:leading-9 md:text-xl md:leading-10 tracking-normal text-[var(--on-surface)] dark:bg-zinc-900/30 border border-[var(--outline-variant)]/30"
     >
       <code className="block select-text w-full">
         {/* Declaration Line */}
@@ -46,7 +46,8 @@ export function HeroCode() {
           <span className="text-emerald-600 dark:text-emerald-400 break-words sm:break-normal">'{profile.role}'<span className="text-zinc-400 dark:text-zinc-500">,</span></span>
         </motion.div>
         
-        <motion.div variants={line} className="pl-4 sm:pl-8 flex flex-wrap items-start row-gap-0">
+        {/* Dropped on phones: it wraps to two lines and pushes the CTA past the fold */}
+        <motion.div variants={line} className="pl-4 sm:pl-8 hidden sm:flex flex-wrap items-start row-gap-0">
           <span className="text-zinc-600 dark:text-zinc-400 shrink-0">focus</span>
           <span className="text-zinc-400 dark:text-zinc-500 mr-1.5">:</span>{" "}
           <span className="text-emerald-600 dark:text-emerald-400 break-words sm:break-normal">'{profile.focus}'<span className="text-zinc-400 dark:text-zinc-500">,</span></span>
@@ -71,7 +72,7 @@ export function HeroCode() {
           </div>
         </motion.div>
         
-        <motion.div variants={line} className="pl-4 sm:pl-8 flex flex-wrap items-start row-gap-0">
+        <motion.div variants={line} className="pl-4 sm:pl-8 hidden sm:flex flex-wrap items-start row-gap-0">
           <span className="text-zinc-600 dark:text-zinc-400 shrink-0">location</span>
           <span className="text-zinc-400 dark:text-zinc-500 mr-1.5">:</span>{" "}
           <span className="text-emerald-600 dark:text-emerald-400 break-words sm:break-normal">'{profile.location}'<span className="text-zinc-400 dark:text-zinc-500">,</span></span>
