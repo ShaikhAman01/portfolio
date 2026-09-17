@@ -10,7 +10,7 @@ export function Footer() {
         </Link>
         
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
-          <p>©{new Date().getFullYear()} @{profile.handle}.</p>
+          <p>©{new Date().getFullYear()} {profile.name}.</p>
           <div className="flex items-center gap-3 text-sm font-black tracking-[0.18em]">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
@@ -20,11 +20,24 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-8">
-          <a href={`mailto:${profile.email}`} className="transition hover:text-black dark:hover:text-white">EMAIL</a>
-          <a href={profile.github} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">GITHUB</a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">LINKEDIN</a>
-          <a href={profile.x} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">X</a>
+        <div className="flex flex-col gap-1.5">
+          <p className="text-base font-black tracking-[0.18em] text-[var(--on-surface)]">
+            @{profile.handle}
+          </p>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-black tracking-[0.18em]">
+            <span aria-hidden="true" className="text-[var(--outline-variant)]">
+              └─
+            </span>
+            <a href={profile.github} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">GITHUB</a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">LINKEDIN</a>
+            <a href={profile.x} target="_blank" rel="noreferrer" className="transition hover:text-black dark:hover:text-white">X</a>
+
+            <span aria-hidden="true" className="text-[var(--outline-variant)]">│</span>
+
+            <a href={`mailto:${profile.email}`} className="transition hover:text-black dark:hover:text-white">EMAIL</a>
+            <Link href="/privacy" className="transition hover:text-black dark:hover:text-white">PRIVACY</Link>
+          </div>
         </div>
       </div>
     </footer>

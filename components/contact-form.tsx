@@ -122,7 +122,13 @@ export function ContactForm() {
 
           <p className="text-[11px] leading-5 tracking-wider text-[var(--outline)] sm:text-xs">
             // Your email and message are relayed to me through Web3Forms. Nothing
-            is stored on this site, and you will never be added to a mailing list.
+            is stored on this site, and you will never be added to a mailing list.{" "}
+            <a
+              href="/privacy"
+              className="underline underline-offset-4 transition hover:text-blue-700 dark:hover:text-emerald-400"
+            >
+              PRIVACY
+            </a>
           </p>
         </form>
       )}
