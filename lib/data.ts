@@ -74,7 +74,7 @@ export const projects = [
     version: "v1.0.0",
     status: "EDGE_ARCADE",
     description:
-      "A full-stack browser arcade — six mini-games plus a lofi chill mode — backed by Cloudflare Workers and D1. Guest-first auth, server-validated scores, and cheat-resistant leaderboards.",
+      "A full-stack browser arcade — six mini-games plus a lofi chill mode — backed by Cloudflare Workers and D1. Guest-first auth and server-validated scores with per-game plausibility checks and rate limits.",
     longDescription:
       "Six single-player games with a real edge backend: Hono on Cloudflare Workers, D1 (SQLite) with Drizzle ORM, JWT auth, and Zod-validated score submission. Every game works fully offline.",
     tags: ["NEXT.JS", "CLOUDFLARE_WORKERS", "HONO", "D1_SQLITE"],
@@ -121,7 +121,7 @@ export const projects = [
     version: "v1.0.0",
     status: "BLOG_PLATFORM",
     description:
-      "A Medium-style blogging platform with a rich-text editor, tags, likes, comments, and one-click AI post summaries — served from Cloudflare's edge.",
+      "A Medium-style blogging platform with public reading, a rich-text editor, tags, likes, comments, cursor pagination, and one-click AI post summaries — served from Cloudflare's edge.",
     longDescription:
       "A React SPA backed by Hono on Cloudflare Workers, PostgreSQL via Prisma Accelerate, and JWT auth, with a shared Zod schema package published to npm.",
     tags: ["REACT", "HONO", "CLOUDFLARE", "PRISMA"],
@@ -149,13 +149,14 @@ export const projects = [
       "AI:WORKERS_AI"
     ],
     about: [
-      "Inscribe is a full-stack blogging platform: users write with a rich-text editor, tag posts, like and comment, and can summarize any post in two sentences using Cloudflare Workers AI (Llama 3).",
+      "Inscribe is a full-stack blogging platform: anyone can read without an account, and signed-in users write with a rich-text editor, tag posts, like and comment, and can summarize any post in two sentences using Cloudflare Workers AI (Mistral Small 3.1).",
       "Workers can't hold TCP database connections, so Prisma runs through Accelerate's HTTP connection pool. Validation schemas live in a shared npm package (@shaikhaman/medium-common), so frontend and backend can never drift apart."
     ],
     challenges: [
       "Running Prisma on an edge runtime with no TCP connections: solved with the Prisma edge client and Accelerate.",
       "Rendering user-generated HTML safely: every post is sanitized with DOMPurify before it touches the DOM.",
-      "Preventing duplicate likes under rapid clicks: a unique database constraint plus a toggle endpoint."
+      "Preventing duplicate likes under rapid clicks: a unique database constraint plus a toggle endpoint.",
+      "Moving legacy unsalted SHA-256 password hashes to salted PBKDF2 without forcing resets: each hash is upgraded on the user's next sign-in."
     ],
     learnings: [
       "Shared validation is an architecture decision: one Zod source of truth ended client/server drift.",
