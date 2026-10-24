@@ -209,8 +209,64 @@ export const projects = [
       "Coercing types at the write boundary prevents whole categories of downstream bugs.",
       "Client-side role checks are UX, not security; real enforcement lives in Firestore Security Rules."
     ]
+  },
+  {
+    slug: "bulk-certificate-generator",
+    title: "BULK_CERTGEN",
+    version: "v1.0.0",
+    status: "JOB_QUEUE",
+    description:
+      "A bulk PDF certificate API: submit up to 1000 recipients in one request, each validated on its own, while background workers render the PDFs from a Postgres-backed job queue.",
+    longDescription:
+      "FastAPI and SQLAlchemy 2 on PostgreSQL 16, with WeasyPrint rendering, workers that scale horizontally via FOR UPDATE SKIP LOCKED, and 42 tests running against a real database in CI.",
+    tags: ["PYTHON", "FASTAPI", "POSTGRESQL", "DOCKER"],
+    image: "/images/bulk-certgen.webp",
+    darkImage: "/images/bulk-certgen.webp",
+    heroImage: "/images/bulk-certgen.webp",
+    heroDarkImage: "/images/bulk-certgen.webp",
+    action: "VIEW_CASE_STUDY",
+    sourceUrl: "https://github.com/ShaikhAman01/bulk-certificate-generator",
+    docsUrl: "https://github.com/ShaikhAman01/bulk-certificate-generator#readme",
+    metrics: [
+      ["QUEUE", "SKIP_LOCKED"],
+      ["TESTS", "42_PASSING"],
+      ["BATCH", "1000_ROWS"],
+      ["WORKERS", "HORIZONTAL"]
+    ],
+    stack: [
+      "API:FASTAPI",
+      "ORM:SQLALCHEMY_2",
+      "DB:POSTGRESQL_16",
+      "PDF:WEASYPRINT",
+      "TESTS:PYTEST",
+      "INFRA:DOCKER_COMPOSE"
+    ],
+    about: [
+      "Rendering 1000 PDFs takes over a minute, far too long for one HTTP request. The API validates the batch, stores every recipient as its own row and answers 202 straight away, then separate worker processes generate the certificates while the client polls progress and downloads a ZIP.",
+      "Postgres doubles as the queue, so there is no extra broker. Each certificate is rendered in its own transaction, so one bad row or rendering error never blocks the rest, and failed rows carry an error code that says whether a retry makes sense."
+    ],
+    challenges: [
+      "Several workers polling the same table could claim the same certificate; FOR UPDATE SKIP LOCKED lets each worker take a disjoint batch without blocking the others.",
+      "A crashed worker leaves certificates stuck in PROCESSING; a lease timeout requeues them and gives up after three attempts.",
+      "Client retries could create duplicate jobs; an Idempotency-Key with a UNIQUE constraint and a request-body hash returns the original job, even when two identical requests race."
+    ],
+    learnings: [
+      "Postgres is a perfectly good queue at this scale; reach for a broker when the numbers demand it.",
+      "Partial indexes keep hot queries fast as finished rows pile up in the same table.",
+      "Validate per row and store the failure reason instead of rejecting the whole batch."
+    ]
   }
 ];
+
+type MoreProject = {
+  title: string;
+  description: string;
+  tags: string[];
+  sourceUrl: string;
+  liveUrl?: string;
+};
+
+export const moreProjects: MoreProject[] = [];
 
 export const skills = [
   ["FRONTEND", "React"],

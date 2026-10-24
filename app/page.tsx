@@ -3,9 +3,10 @@ import Image from "next/image";
 import { ContactForm } from "@/components/contact-form";
 import { CopyEmailChip } from "@/components/copy-email";
 import { MotionDiv, Reveal } from "@/components/motion";
+import { MiniProjectCard } from "@/components/mini-project-card";
 import { ProjectCard } from "@/components/project-card";
 import { SectionTitle } from "@/components/section-title";
-import { history, profile, projects, skills } from "@/lib/data";
+import { history, moreProjects, profile, projects, skills } from "@/lib/data";
 import { HeroCode } from "@/components/hero-code";
 import { BlinkingCursor } from "@/components/blinking-cursor";
 
@@ -163,6 +164,22 @@ export default function Home() {
               <ProjectCard key={project.slug} project={project} index={index} />
             ))}
           </div>
+
+          {moreProjects.length > 0 && (
+            <div className="mt-16">
+              <h3 className="mb-6 flex items-center gap-2 text-sm font-black tracking-[0.18em] text-[var(--outline)]">
+                <span aria-hidden="true" className="text-blue-700 dark:text-emerald-400">
+                  //
+                </span>
+                MORE_PROJECTS
+              </h3>
+              <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+                {moreProjects.map((project, index) => (
+                  <MiniProjectCard key={project.title} project={project} index={index} />
+                ))}
+              </div>
+            </div>
+          )}
         </section>
 
         {/* SKILLS SECTION */}
