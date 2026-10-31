@@ -165,52 +165,6 @@ export const projects = [
     ]
   },
   {
-    slug: "quantum",
-    title: "QUANTUM",
-    version: "v1.0.0",
-    status: "ECOMMERCE_APP",
-    description:
-      "An e-commerce SPA for electronics with real-time product data, cart and checkout flows, and a role-gated admin dashboard — built on React and Firebase.",
-    longDescription:
-      "A client-only commerce app: Firebase Auth with role-based routing, Firestore real-time listeners for live data, and a Redux cart persisted to localStorage.",
-    tags: ["REACT", "FIREBASE", "REDUX", "TAILWIND"],
-    image: "/images/quantum.webp",
-    darkImage: "/images/quantum.webp",
-    heroImage: "/images/quantum.webp",
-    heroDarkImage: "/images/quantum.webp",
-    action: "VIEW_CASE_STUDY",
-    sourceUrl: "https://github.com/ShaikhAman01/Quantum-e-commerce",
-    liveUrl: "https://quantum.shaikhaman.in",
-    docsUrl: "https://app.notion.com/p/amanshaikh/DOCUMENTATION-39526719f3cc80948445e0288c8da461",
-    metrics: [
-      ["DATA", "REALTIME"],
-      ["AUTH", "EMAIL+GOOGLE"],
-      ["ROLES", "USER/ADMIN"],
-      ["ADMIN", "FULL_CRUD"]
-    ],
-    stack: [
-      "APP:REACT+VITE",
-      "AUTH:FIREBASE",
-      "DATA:FIRESTORE",
-      "STATE:REDUX_TOOLKIT",
-      "STYLE:TAILWIND"
-    ],
-    about: [
-      "Quantum is a single-page e-commerce app with two sides: customers browse, search, manage a persistent cart, and place orders; admins manage the catalog and watch orders and users update live through Firestore listeners.",
-      "State is split by shape: the cart lives in Redux Toolkit and persists to localStorage, while live Firestore data flows through a context provider."
-    ],
-    challenges: [
-      "Firestore Timestamps broke Redux's serializability checks; fixed by storing epoch milliseconds instead.",
-      "Google sign-in could succeed with no profile document; the login flow now creates one on the fly.",
-      "Nested routes 404'd on refresh until an SPA rewrite rule sent every path back to index.html."
-    ],
-    learnings: [
-      "Choose state tools per data shape instead of forcing everything into one store.",
-      "Coercing types at the write boundary prevents whole categories of downstream bugs.",
-      "Client-side role checks are UX, not security; real enforcement lives in Firestore Security Rules."
-    ]
-  },
-  {
     slug: "bulk-certificate-generator",
     title: "BULK_CERTGEN",
     version: "v1.0.0",
@@ -266,7 +220,16 @@ type MoreProject = {
   liveUrl?: string;
 };
 
-export const moreProjects: MoreProject[] = [];
+export const moreProjects: MoreProject[] = [
+  {
+    title: "QUANTUM",
+    description:
+      "An early React and Firebase e-commerce SPA with a persistent cart, checkout and a role-gated admin dashboard, locked down by Firestore security rules.",
+    tags: ["REACT", "FIREBASE", "REDUX", "TAILWIND"],
+    sourceUrl: "https://github.com/ShaikhAman01/Quantum-e-commerce",
+    liveUrl: "https://quantum.shaikhaman.in"
+  }
+];
 
 export const skills = [
   ["FRONTEND", "React"],
