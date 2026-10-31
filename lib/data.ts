@@ -180,7 +180,7 @@ export const projects = [
     heroDarkImage: "/images/bulk-certgen.webp",
     action: "VIEW_CASE_STUDY",
     sourceUrl: "https://github.com/ShaikhAman01/bulk-certificate-generator",
-    docsUrl: "https://github.com/ShaikhAman01/bulk-certificate-generator#readme",
+    docsUrl: "https://app.notion.com/p/amanshaikh/Bulk-Certificate-Generator-40a26719f3cc812fb400e739d7a9c0bb",
     metrics: [
       ["QUEUE", "SKIP_LOCKED"],
       ["TESTS", "42_PASSING"],

@@ -67,7 +67,7 @@ export default async function ProjectPage({
             </Link>
             <span>/</span>
             <Link
-              href="/#projects"
+              href="/projects"
               className="transition hover:text-blue-700 dark:hover:text-emerald-400"
             >
               PROJECTS

@@ -1,5 +1,6 @@
 import { Binary, History as HistoryIcon, Mail, Server } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { CopyEmailChip } from "@/components/copy-email";
 import { MotionDiv, Reveal } from "@/components/motion";
@@ -9,6 +10,8 @@ import { SectionTitle } from "@/components/section-title";
 import { history, moreProjects, profile, projects, skills } from "@/lib/data";
 import { HeroCode } from "@/components/hero-code";
 import { BlinkingCursor } from "@/components/blinking-cursor";
+
+const HOME_MORE_LIMIT = 3;
 
 export default function Home() {
   return (
@@ -174,10 +177,18 @@ export default function Home() {
                 MORE_PROJECTS
               </h3>
               <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
-                {moreProjects.map((project, index) => (
+                {moreProjects.slice(0, HOME_MORE_LIMIT).map((project, index) => (
                   <MiniProjectCard key={project.title} project={project} index={index} />
                 ))}
               </div>
+              {moreProjects.length > HOME_MORE_LIMIT && (
+                <Link
+                  href="/projects"
+                  className="mt-8 inline-block text-sm font-black tracking-[0.18em] text-blue-700 hover:underline dark:text-emerald-400"
+                >
+                  VIEW_ALL_PROJECTS [{projects.length + moreProjects.length}] →
+                </Link>
+              )}
             </div>
           )}
         </section>
