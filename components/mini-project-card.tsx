@@ -8,6 +8,7 @@ type MiniProject = {
   tags: readonly string[];
   sourceUrl: string;
   liveUrl?: string;
+  docsUrl?: string;
 };
 
 const linkClass = "flex items-center gap-1 hover:underline";
@@ -62,6 +63,12 @@ export function MiniProjectCard({
           {project.liveUrl && (
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>
               LIVE
+              <ArrowUpRight className="h-4 w-4" strokeWidth={3} aria-hidden="true" />
+            </a>
+          )}
+          {project.docsUrl && (
+            <a href={project.docsUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>
+              DOCS
               <ArrowUpRight className="h-4 w-4" strokeWidth={3} aria-hidden="true" />
             </a>
           )}

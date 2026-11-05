@@ -218,16 +218,27 @@ type MoreProject = {
   tags: string[];
   sourceUrl: string;
   liveUrl?: string;
+  docsUrl?: string;
 };
 
 export const moreProjects: MoreProject[] = [
+  {
+    title: "CHRONOKEY",
+    description:
+      "An interactive look inside two-factor codes: watch a TOTP code being built step by step, scan the QR to see your phone match it, and check the result against every RFC test value. Runs entirely in the browser.",
+    tags: ["TYPESCRIPT", "REACT", "WEB_CRYPTO", "RFC_6238"],
+    sourceUrl: "https://github.com/ShaikhAman01/ChronoKey",
+    liveUrl: "https://chronokey.shaikhaman.in",
+    docsUrl: "https://app.notion.com/p/amanshaikh/ChronoKey-40f26719f3cc81d4ab5ef744f1dc4953"
+  },
   {
     title: "QUANTUM",
     description:
       "An early React and Firebase e-commerce SPA with a persistent cart, checkout and a role-gated admin dashboard, locked down by Firestore security rules.",
     tags: ["REACT", "FIREBASE", "REDUX", "TAILWIND"],
     sourceUrl: "https://github.com/ShaikhAman01/Quantum-e-commerce",
-    liveUrl: "https://quantum.shaikhaman.in"
+    liveUrl: "https://quantum.shaikhaman.in",
+    docsUrl: "https://app.notion.com/p/amanshaikh/DOCUMENTATION-39526719f3cc80948445e0288c8da461"
   }
 ];
 
