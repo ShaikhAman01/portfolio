@@ -24,7 +24,7 @@ export function MiniProjectCard({
 }) {
   return (
     <Reveal delay={index * 0.05} className="h-full">
-      <article className="group flex h-full flex-col border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-blue-700 hover:shadow-[6px_6px_0_rgba(0,0,0,0.1)] dark:hover:border-emerald-400 dark:hover:shadow-[6px_6px_0_rgba(255,255,255,0.08)]">
+      <article className="group flex h-full flex-col border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 transition-[transform,box-shadow,border-color] duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-blue-700 hover:shadow-[6px_6px_0_rgba(0,0,0,0.1)] dark:hover:border-emerald-400 dark:hover:shadow-[6px_6px_0_rgba(255,255,255,0.08)]">
         <h4 className="text-xl font-black tracking-[0.08em] break-words">
           {caseStudyHref ? (
             <Link href={caseStudyHref} className="transition-colors hover:text-blue-700 dark:hover:text-emerald-400">

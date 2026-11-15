@@ -13,13 +13,13 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         
         {/* Image Section */}
         <Link href={`/projects/${project.slug}`} className="block">
-          <div className="relative aspect-video overflow-hidden border-b border-[var(--outline-variant)] bg-zinc-200 grayscale transition duration-500 group-hover:grayscale-0 dark:border-[var(--outline-variant)] dark:bg-zinc-900 dark:grayscale group-hover:dark:grayscale-0">
+          <div className="relative aspect-video overflow-hidden border-b border-[var(--outline-variant)] bg-zinc-200 grayscale transition duration-300 group-hover:grayscale-0 dark:border-[var(--outline-variant)] dark:bg-zinc-900 dark:grayscale group-hover:dark:grayscale-0">
   <Image
     src={project.image}
     alt={`${project.title} preview`}
     fill
     sizes="(min-width: 1024px) 50vw, 100vw"
-    className="object-cover transition duration-700 group-hover:scale-105"
+    className="object-cover transition duration-300 group-hover:scale-105"
   />
 </div>
         </Link>
@@ -50,7 +50,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
 
               <div className="flex items-center gap-2 border-2 border-black px-3 py-1 dark:border-white bg-[var(--surface-container-lowest)]">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="absolute inline-flex h-full w-full motion-safe:animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
                 </span>
                 <span className="text-xs font-black tracking-widest">{project.status}</span>

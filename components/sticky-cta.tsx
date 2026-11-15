@@ -58,7 +58,7 @@ export function StickyCTA() {
           <div className="flex items-stretch gap-3 px-4 py-3">
             <Link
               href="/#contact"
-              className="flex-1 bg-black px-4 py-4 text-center text-sm font-black tracking-[0.14em] text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400"
+              className="flex-1 bg-black px-4 py-4 text-center text-sm font-black tracking-[0.14em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400"
             >
               INITIALIZE_CONNECTION &gt;_
             </Link>
@@ -68,7 +68,7 @@ export function StickyCTA() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download resume as PDF"
-              className="flex items-center justify-center border border-black bg-[var(--surface-container-lowest)] px-4 text-sm font-black tracking-[0.14em] text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+              className="flex items-center justify-center border border-black bg-[var(--surface-container-lowest)] px-4 text-sm font-black tracking-[0.14em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
             >
               CV ↓
             </a>

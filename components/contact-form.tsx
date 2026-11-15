@@ -179,13 +179,13 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full sm:w-auto border border-black px-8 py-4 text-sm sm:text-base font-black tracking-[0.18em] bg-black text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 disabled:opacity-50"
+              className="w-full sm:w-auto border border-black px-8 py-4 text-sm sm:text-base font-black tracking-[0.18em] bg-black text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 disabled:opacity-50 disabled:active:scale-100"
             >
               {isSubmitting ? "TRANSMITTING..." : "TRANSMIT"}
             </button>
 
             {result === "ERROR" && (
-              <p role="alert" className="font-black text-red-500 animate-pulse text-xs sm:text-sm tracking-widest break-words">
+              <p role="alert" className="font-black text-red-500 motion-safe:animate-pulse text-xs sm:text-sm tracking-widest break-words">
                 ! UPLINK_FAILURE: RETRY_TRANSMISSION
               </p>
             )}

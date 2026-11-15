@@ -40,7 +40,7 @@ export function SudoMode() {
           className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-black/95 font-mono text-emerald-500 backdrop-blur-sm"
         >
           <div className="w-full max-w-2xl border border-emerald-500/30 bg-black p-8 md:p-12">
-            <p className="mb-4 animate-pulse text-2xl font-black tracking-widest md:text-4xl">
+            <p className="mb-4 motion-safe:animate-pulse text-2xl font-black tracking-widest md:text-4xl">
               &gt; ROOT_PRIVILEGES_GRANTED
             </p>
             <p className="mb-12 text-lg tracking-widest text-emerald-500/70">
