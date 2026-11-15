@@ -88,6 +88,27 @@ html {
   outline-offset: 3px;
 }
 
+html[data-booted] .crt-boot {
+  display: none;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.menu-in {
+  animation: menu-in 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-in {
+    animation-name: none;
+  }
+}
+
 /* Anchored sections stop below the sticky header instead of underneath it */
 section[id] {
   scroll-margin-top: 6rem;

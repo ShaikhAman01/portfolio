@@ -132,7 +132,7 @@ export function Header({ active = "" }: { active?: string }) {
       </div>
 
       {isMenuOpen && (
-        <nav className="w-full border-t border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] px-5 py-6 flex flex-col gap-6 text-base font-black text-[var(--outline)] dark:text-[var(--on-surface-variant)] lg:hidden shadow-[0_8px_16px_rgba(0,0,0,0.06)] animate-in fade-in slide-in-from-top-2 duration-200">
+        <nav className="w-full border-t border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] px-5 py-6 flex flex-col gap-6 text-base font-black text-[var(--outline)] dark:text-[var(--on-surface-variant)] lg:hidden shadow-[0_8px_16px_rgba(0,0,0,0.06)] menu-in">
           {nav.map(([label, href]) => {
             const isActive = currentActive === label;
             return (

@@ -104,10 +104,10 @@ export default function RootLayout({
       <body
         className="font-mono bg-[var(--bg)] text-[var(--on-surface)] antialiased"
       >
-        {/* Apply stored/system theme before first paint to avoid a light-mode flash */}
+        {/* Before first paint: apply the theme, and skip the boot screen on repeat visits */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("dev-core-theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem("dev-core-theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches)){document.documentElement.classList.add("dark")}}catch(e){}try{if(sessionStorage.getItem("dev-core-booted")||window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.setAttribute("data-booted","")}}catch(e){}})()`,
           }}
         />
 
