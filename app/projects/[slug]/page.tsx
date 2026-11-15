@@ -102,7 +102,7 @@ export default async function ProjectPage({
                 href={project.sourceUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-black px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400"
+                className="bg-black px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400"
               >
                 VIEW_SOURCE &lt;/&gt;
               </a>
@@ -111,7 +111,7 @@ export default async function ProjectPage({
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+                  className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
                 >
                   LAUNCH_LIVE_APP →
                 </a>
@@ -121,7 +121,7 @@ export default async function ProjectPage({
                   href={project.docsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="border border-dashed border-blue-700 bg-blue-50/50 px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-blue-700 transition hover:bg-blue-700 hover:text-white dark:border-emerald-400 dark:bg-emerald-950/20 dark:text-emerald-400 dark:hover:bg-emerald-400 dark:hover:text-black"
+                  className="border border-dashed border-blue-700 bg-blue-50/50 px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-blue-700 transition active:scale-[0.97] hover:bg-blue-700 hover:text-white dark:border-emerald-400 dark:bg-emerald-950/20 dark:text-emerald-400 dark:hover:bg-emerald-400 dark:hover:text-black"
                 >
                   EXPLORE_DOCS ▤
                 </a>
@@ -199,7 +199,7 @@ export default async function ProjectPage({
                 return (
                   <div
                     key={index}
-                    className="group relative border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-5 sm:p-6 transition-all duration-200 hover:-translate-y-1 hover:border-blue-700 dark:hover:border-emerald-400"
+                    className="group relative border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-5 sm:p-6 transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:border-blue-700 dark:hover:border-emerald-400"
                   >
                     <div className="flex flex-col font-mono">
                       <span className="text-[10px] font-bold tracking-widest text-[var(--outline)] uppercase group-hover:text-blue-700 dark:group-hover:text-emerald-400">
@@ -285,14 +285,14 @@ export default async function ProjectPage({
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-shrink-0 w-full md:w-auto">
                 <Link
                   href="/#contact"
-                  className="bg-black px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 w-full sm:w-auto"
+                  className="bg-black px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 w-full sm:w-auto"
                 >
                   INITIALIZE_DISCUSSION →
                 </Link>
 
                 <Link
                   href="/#projects"
-                  className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto"
+                  className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto"
                 >
                   RETURN_TO_INDEX
                 </Link>

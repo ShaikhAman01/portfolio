@@ -202,9 +202,11 @@ body::after {
   }
 
   /* 2. Hover Trigger: Only animate when the parent .group is hovered */
-  .group:hover .animate-terminal-scan {
-    opacity: 1;
-    animation: scanlineMovement 2.2s infinite linear;
+  @media (hover: hover) {
+    .group:hover .animate-terminal-scan {
+      opacity: 1;
+      animation: scanlineMovement 2.2s infinite linear;
+    }
   }
 
   /* 3. Dark Mode Override: Explicitly switches to Emerald Green on hover */

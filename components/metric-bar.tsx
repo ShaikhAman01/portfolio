@@ -6,11 +6,11 @@ export function MetricBar({ delay = 0 }: { delay?: number }) {
   return (
     <div className="mt-6 sm:mt-8 h-[2px] w-full bg-[var(--outline-variant)]/30">
       <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: "70%" }}
+        initial={{ transform: "scaleX(0)" }}
+        whileInView={{ transform: "scaleX(1)" }}
         viewport={{ once: true }}
-        transition={{ duration: 1.5, delay, ease: "circOut" }}
-        className="h-full bg-blue-700 dark:bg-emerald-400"
+        transition={{ duration: 0.8, delay, ease: [0.23, 1, 0.32, 1] }}
+        className="h-full w-[70%] origin-left bg-blue-700 dark:bg-emerald-400"
       />
     </div>
   );

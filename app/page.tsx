@@ -65,7 +65,7 @@ export default function Home() {
                       {/* Primary Solid Action Option */}
                       <a
                         href="#projects"
-                        className="bg-black px-6 py-4 md:px-8 md:py-5 text-center text-base font-black tracking-[0.14em] text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 w-full sm:w-auto"
+                        className="bg-black px-6 py-4 md:px-8 md:py-5 text-center text-base font-black tracking-[0.14em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 w-full sm:w-auto"
                       >
                         VIEW_PROJECTS →
                       </a>
@@ -73,7 +73,7 @@ export default function Home() {
                       {/* Secondary Outline Action Option */}
                       <a
                         href={profile.resumeUrl}
-                        className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 md:px-8 md:py-5 text-center text-base font-black tracking-[0.14em] text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto"
+                        className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 md:px-8 md:py-5 text-center text-base font-black tracking-[0.14em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto"
                       >
                         DOWNLOAD_CV.PDF
                       </a>
@@ -126,7 +126,7 @@ export default function Home() {
                           width={400}
                           height={400}
                           priority
-                          className="w-full object-contain grayscale transition-all duration-700 ease-out contrast-[1.10] brightness-[0.95] saturate-[0.75] group-hover:grayscale-0 group-hover:contrast-[1.15] group-hover:brightness-[1.00] dark:contrast-[1.05] dark:brightness-[0.90]"
+                          className="w-full object-contain grayscale transition-[filter] duration-300 ease-out contrast-[1.10] brightness-[0.95] saturate-[0.75] group-hover:grayscale-0 group-hover:contrast-[1.15] group-hover:brightness-[1.00] dark:contrast-[1.05] dark:brightness-[0.90]"
                           style={{
                             imageRendering: "pixelated",
                           }}
@@ -199,7 +199,7 @@ export default function Home() {
           <div className="grid gap-4 pt-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
             {skills.map(([label, value], index) => (
               <Reveal key={`${label}-${value}`} delay={index * 0.025}>
-                <div className="group relative border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 sm:p-8 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-blue-700 hover:shadow-[6px_6px_0_rgba(0,0,0,0.1)] dark:hover:border-emerald-400 dark:hover:shadow-[6px_6px_0_rgba(255,255,255,0.08)]">
+                <div className="group relative border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 sm:p-8 transition-[transform,box-shadow,border-color] duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:border-blue-700 hover:shadow-[6px_6px_0_rgba(0,0,0,0.1)] dark:hover:border-emerald-400 dark:hover:shadow-[6px_6px_0_rgba(255,255,255,0.08)]">
                   <div className="absolute right-6 top-6 h-2 w-2 bg-[var(--outline-variant)] transition-colors duration-300 group-hover:bg-blue-700 dark:group-hover:bg-emerald-400" />
                   <p className="mb-5 flex items-center gap-2 text-sm font-black tracking-[0.18em] text-[var(--outline)] transition-colors duration-300 group-hover:text-[var(--on-surface)]">
                     <span className="text-blue-700 dark:text-emerald-400">

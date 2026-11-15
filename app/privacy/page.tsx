@@ -191,13 +191,13 @@ export default function PrivacyPage() {
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <Link
             href="/"
-            className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 text-center text-sm font-black tracking-[0.18em] text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+            className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 text-center text-sm font-black tracking-[0.18em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
           >
             RETURN_TO_INDEX
           </Link>
           <Link
             href="/#contact"
-            className="bg-black px-6 py-4 text-center text-sm font-black tracking-[0.18em] text-white transition hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400"
+            className="bg-black px-6 py-4 text-center text-sm font-black tracking-[0.18em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400"
           >
             INITIALIZE_DISCUSSION →
           </Link>
