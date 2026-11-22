@@ -179,7 +179,7 @@ export default function PrivacyPage() {
                 {profile.email}
               </a>
               <br />
-              {profile.name} — {profile.location}, India
+              {profile.name} — {profile.location}
             </p>
             <p className="text-sm text-[var(--outline)]">
               // If you read this far, you are the first. Mention it and I will

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "PostgreSQL",
     "FastAPI",
     "Cloudflare Workers",
-    "Hyderabad",
+    "India",
   ],
   authors: [{ name: profile.name, url: "https://www.shaikhaman.in" }],
   creator: profile.name,
@@ -75,7 +75,6 @@ const personJsonLd = {
   url: "https://www.shaikhaman.in",
   address: {
     "@type": "PostalAddress",
-    addressLocality: profile.location,
     addressCountry: "IN",
   },
   sameAs: [profile.github, profile.linkedin, profile.x],

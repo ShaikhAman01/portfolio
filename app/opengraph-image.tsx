@@ -231,7 +231,7 @@ export default async function Image() {
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                   <span style={{ color: "#71717a" }}>LOCATION</span>
-                  <span style={{ color: "#18181b" }}>HYDERABAD</span>
+                  <span style={{ color: "#18181b" }}>INDIA</span>
                 </div>
               </div>
             </div>

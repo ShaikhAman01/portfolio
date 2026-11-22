@@ -4,7 +4,7 @@ export const profile = {
   role: "Fullstack Developer",
   focus: "Backend-leaning fullstack developer",
   status: "available_for_hire",
-  location: "Hyderabad",
+  location: "India",
   email: "amanshaikh0025@gmail.com",
   terminal: "ssh aman@remote.terminal",
   resumeUrl: "/Shaikh_Aman_Resume.pdf",

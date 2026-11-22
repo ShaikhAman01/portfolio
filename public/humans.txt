@@ -7,7 +7,7 @@ aman@system:~$ cat humans.txt
 /* TEAM */
 Developer: Shaikh Aman
 Role:      Full Stack Developer
-Location:  Hyderabad, India
+Location:  India
 Contact:   amanshaikh0025@gmail.com
 Site:      https://www.shaikhaman.in
 GitHub:    https://github.com/ShaikhAman01
