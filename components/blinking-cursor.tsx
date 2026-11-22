@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 export function BlinkingCursor() {
   return (
     <motion.span
+      aria-hidden="true"
       // We map 4 distinct states...
       animate={{ opacity: [1, 1, 0, 0] }}
       transition={{ 

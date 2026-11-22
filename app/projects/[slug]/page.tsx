@@ -224,7 +224,7 @@ export default async function ProjectPage({
             <Reveal>
               <div className="h-full border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-5 sm:p-8 shadow-[6px_6px_0_rgba(0,0,0,0.04)] dark:border-zinc-800 overflow-hidden">
                 <div className="flex items-center gap-3 border-b border-[var(--outline-variant)] pb-4 sm:pb-6">
-                  <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-red-500 flex-shrink-0" />
+                  <AlertTriangle aria-hidden="true" className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 text-blue-700 dark:text-emerald-400" strokeWidth={3} />
                   <h2 className="text-xl sm:text-3xl font-black tracking-[0.08em] uppercase break-words">
                     Key_Challenges
                   </h2>
@@ -247,7 +247,7 @@ export default async function ProjectPage({
             <Reveal delay={0.05}>
               <div className="h-full border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-5 sm:p-8 shadow-[6px_6px_0_rgba(0,0,0,0.04)] dark:border-zinc-800 overflow-hidden">
                 <div className="flex items-center gap-3 border-b border-[var(--outline-variant)] pb-4 sm:pb-6">
-                  <Lightbulb className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-500 flex-shrink-0" />
+                  <Lightbulb aria-hidden="true" className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 text-blue-700 dark:text-emerald-400" strokeWidth={3} />
                   <h2 className="text-xl sm:text-3xl font-black tracking-[0.08em] uppercase break-words">
                     Key_Learnings
                   </h2>
