@@ -27,6 +27,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
     sizes="(min-width: 1024px) 50vw, 100vw"
     className="object-cover transition duration-300 group-hover:scale-105"
   />
+  <div className="animate-terminal-scan" />
 </div>
         </Link>
           

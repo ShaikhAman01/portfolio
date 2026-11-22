@@ -101,7 +101,7 @@ export default async function Image() {
                   marginBottom: "8px",
                 }}
               >
-                aman@system:~$
+                aman@system:~$<span style={{ color: "#18181b", marginLeft: "12px" }}>whoami</span>
               </div>
 
               <h1
@@ -117,10 +117,14 @@ export default async function Image() {
                   marginBottom: "20px",
                 }}
               >
-                <span>Building reliable</span>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <span>web systems</span>
-                  <span style={{ color: "#2563eb", marginLeft: "6px" }}>._</span>
+                  <span style={{ width: "44px", fontSize: "15px", fontWeight: 400, color: "#71717a", letterSpacing: "0", borderRight: "1px solid #cbd5e1", alignSelf: "stretch", display: "flex", alignItems: "center", marginRight: "18px" }}>01</span>
+                  <span>Building reliable</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span style={{ width: "44px", fontSize: "15px", fontWeight: 400, color: "#71717a", letterSpacing: "0", borderRight: "1px solid #cbd5e1", alignSelf: "stretch", display: "flex", alignItems: "center", marginRight: "18px" }}>02</span>
+                  <span style={{ background: "#2563eb", color: "#ffffff", padding: "0 6px" }}>web systems.</span>
+                  <span style={{ color: "#2563eb", marginLeft: "4px" }}>_</span>
                 </div>
               </h1>
 
