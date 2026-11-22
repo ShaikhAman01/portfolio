@@ -11,7 +11,13 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
     <Reveal delay={index * 0.08} className="h-full">
       <article className="h-full flex flex-col group border border-black bg-[var(--surface-container-lowest)] shadow-[6px_6px_0_rgba(0,0,0,0.08)] transition duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:border-black hover:shadow-[10px_10px_0_rgba(0,0,0,0.16)] dark:border-white dark:bg-[var(--surface-container-lowest)] dark:hover:border-white dark:shadow-[6px_6px_0_rgba(255,255,255,0.06)] dark:hover:shadow-[10px_10px_0_rgba(255,255,255,0.12)] relative">
         
-        {/* Image Section */}
+        <div aria-hidden="true" className="flex items-center gap-2 border-b border-[var(--outline-variant)] px-4 py-2.5 text-xs text-[var(--outline)]">
+          <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
+          <span className="h-2.5 w-2.5 rounded-full bg-blue-400" />
+          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+          <span className="ml-2 truncate transition-colors group-hover:text-[var(--on-surface)]">~/projects/{project.slug}</span>
+        </div>
+
         <Link href={`/projects/${project.slug}`} className="block">
           <div className="relative aspect-video overflow-hidden border-b border-[var(--outline-variant)] bg-zinc-200 grayscale transition duration-300 group-hover:grayscale-0 dark:border-[var(--outline-variant)] dark:bg-zinc-900 dark:grayscale group-hover:dark:grayscale-0">
   <Image
@@ -35,19 +41,6 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             </Link>
 
             <div className="flex items-center gap-3 relative z-20">
-              {"liveUrl" in project && project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 border border-dashed border-blue-700 bg-blue-50/50 px-3 py-1 text-xs font-black tracking-widest text-blue-700 transition-all hover:bg-blue-700 hover:text-white dark:border-emerald-400 dark:bg-emerald-950/20 dark:text-emerald-400 dark:hover:bg-emerald-400 dark:hover:text-black"
-                  title="Launch Production Application Deployment"
-                >
-                  LIVE_TARGET
-                  <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={3} />
-                </a>
-              )}
-
               <div className="flex items-center gap-2 border-2 border-black px-3 py-1 dark:border-white bg-[var(--surface-container-lowest)]">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full motion-safe:animate-ping rounded-full bg-emerald-400 opacity-75"></span>
@@ -69,7 +62,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
               {project.tags.map((tag) => (
                 <span 
                   key={tag} 
-                  className="border border-[var(--outline-variant)] bg-[var(--surface-container-low)] px-4 py-2 text-sm font-bold transition-colors group-hover:border-black dark:group-hover:border-white"
+                  className="border border-[var(--outline-variant)] px-4 py-2 text-sm font-bold transition-colors group-hover:border-black dark:group-hover:border-white"
                 >
                   {tag}
                 </span>
@@ -77,14 +70,26 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             </div>
           </div>
           
-          {/* Action Link */}
-          <Link href={`/projects/${project.slug}`} className="block mt-auto">
-            <div className="flex items-center gap-2 text-lg font-black tracking-[0.12em] text-blue-700 dark:text-emerald-400">
-              <Terminal className="h-5 w-5" strokeWidth={3} />
+          <div className="mt-auto flex flex-wrap items-center justify-between gap-4">
+            <Link href={`/projects/${project.slug}`} className="flex items-center gap-2 text-lg font-black tracking-[0.12em] text-blue-700 dark:text-emerald-400">
+              <Terminal className="h-5 w-5" strokeWidth={3} aria-hidden="true" />
               <span>{project.action}</span>
-              <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" strokeWidth={3} />
-            </div>
-          </Link>
+              <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" strokeWidth={3} aria-hidden="true" />
+            </Link>
+
+            {"liveUrl" in project && project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 border border-dashed border-blue-700 bg-blue-50/50 px-3 py-1.5 text-sm font-black tracking-widest text-blue-700 transition-colors hover:bg-blue-700 hover:text-white dark:border-emerald-400 dark:bg-emerald-950/20 dark:text-emerald-400 dark:hover:bg-emerald-400 dark:hover:text-black"
+                title="Launch Production Application Deployment"
+              >
+                LIVE_TARGET
+                <ArrowUpRight className="h-4 w-4" strokeWidth={3} aria-hidden="true" />
+              </a>
+            )}
+          </div>
         </div>
 
       </article>
