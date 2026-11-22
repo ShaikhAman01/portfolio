@@ -43,14 +43,33 @@ export default function Home() {
                     className="p-5 sm:p-8 md:p-14"
                   >
                     <div className="mb-6 font-mono text-sm tracking-wider text-blue-700 dark:text-emerald-400">
-                      aman@system:~$
+                      aman@system:~$ <span className="text-[var(--on-surface)]">whoami</span>
                     </div>
 
-                    <h1 className="max-w-5xl text-4xl sm:text-5xl md:text-7xl xl:text-8xl font-black leading-[0.95] md:leading-[0.92] tracking-[-0.05em] break-words">
-                      Building reliable
-                      <br />
-                      web systems.
-                      <BlinkingCursor />
+                    <h1 className="relative max-w-5xl text-[min(2.25rem,8.5vw)] sm:text-5xl md:text-[min(4.5rem,7vw)] xl:text-8xl font-black leading-[0.95] md:leading-[0.92] tracking-[-0.04em]">
+                      <span aria-hidden="true" className="absolute inset-y-0 left-9 hidden w-px bg-[var(--outline-variant)] sm:block" />
+                      {["Building", "reliable"].map((word, i) => (
+                        <span key={word} className="flex items-baseline">
+                          <span aria-hidden="true" className="hidden w-9 shrink-0 select-none text-sm font-normal tracking-normal text-[var(--outline)] tabular-nums sm:block">
+                            0{i + 1}
+                          </span>
+                          <span className="sm:pl-5">{word} </span>
+                        </span>
+                      ))}
+                      <span className="flex items-baseline">
+                        <span aria-hidden="true" className="hidden w-9 shrink-0 select-none text-sm font-normal tracking-normal text-[var(--outline)] tabular-nums sm:block">
+                          03
+                        </span>
+                        <span className="whitespace-nowrap sm:pl-5">
+                          <span className="relative inline-block">
+                            <span className="px-[0.08em]">web systems.</span>
+                            <span aria-hidden="true" className="hero-select absolute inset-0 select-none bg-blue-700 px-[0.08em] text-white dark:bg-emerald-400 dark:text-black">
+                              web systems.
+                            </span>
+                          </span>
+                          <BlinkingCursor />
+                        </span>
+                      </span>
                     </h1>
 
                     <p className="mt-6 md:mt-8 max-w-2xl text-base leading-7 sm:text-lg sm:leading-8 text-[var(--on-surface-variant)] md:text-xl">
@@ -60,11 +79,11 @@ export default function Home() {
                     </p>
 
                     {/* Streamlined UI Action Layout */}
-                    <div className="mt-10 md:mt-12 flex flex-col sm:flex-row gap-4">
+                    <div className="mt-10 md:mt-12 flex flex-col sm:flex-row sm:flex-wrap gap-4">
                       {/* Primary Solid Action Option */}
                       <a
                         href="#projects"
-                        className="bg-black px-6 py-4 md:px-8 md:py-5 text-center text-base font-black tracking-[0.14em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 w-full sm:w-auto"
+                        className="whitespace-nowrap bg-black px-6 py-4 md:py-5 lg:px-8 text-center text-base font-black tracking-[0.14em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 w-full sm:w-auto"
                       >
                         VIEW_PROJECTS →
                       </a>
@@ -72,7 +91,7 @@ export default function Home() {
                       {/* Secondary Outline Action Option */}
                       <a
                         href={profile.resumeUrl}
-                        className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 md:px-8 md:py-5 text-center text-base font-black tracking-[0.14em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto"
+                        className="whitespace-nowrap border border-black bg-[var(--surface-container-lowest)] px-6 py-4 md:py-5 lg:px-8 text-center text-base font-black tracking-[0.14em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto"
                       >
                         DOWNLOAD_CV.PDF
                       </a>
