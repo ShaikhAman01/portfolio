@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react"; 
 import { profile } from "@/lib/data";
 import { ThemeToggle } from "./theme-toggle";
+import { ScrollLine, ScrollReadout } from "./scroll-progress";
 
 const nav = [
   ["Projects", "/#projects"],
@@ -108,6 +109,7 @@ export function Header({ active = "" }: { active?: string }) {
         </nav>
         
         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <ScrollReadout />
           <div className="h-12 flex items-center justify-center text-xs sm:text-sm md:text-base [&_button]:h-full [&_div]:h-full [&_*]:whitespace-nowrap [&_*]:break-keep [&_button]:px-3 sm:[&_button]:px-5">
             <ThemeToggle />
           </div>
@@ -174,6 +176,7 @@ export function Header({ active = "" }: { active?: string }) {
           </Link>
         </nav>
       )}
+      <ScrollLine />
     </header>
   );
 }
