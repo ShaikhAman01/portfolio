@@ -12,7 +12,7 @@
   --surface-container-high: #e7e8e9;
   --surface-container-low: #f3f4f5;
   --surface-container-lowest: #ffffff;
-  --outline: #76777d;
+  --outline: #6e6f75;
   --outline-variant: #c6c6cd;
   --on-surface: #191c1d;
   --on-surface-variant: #45464c;
@@ -32,7 +32,7 @@
   --surface-container-high: #141416;
   --surface-container-low: #0b0b0d;
   --surface-container-lowest: #080809;
-  --outline: #5f5f66;
+  --outline: #85858c;
   --outline-variant: #3f3f45;
   --on-surface: #f7f7f8;
   --on-surface-variant: #9ca3af;
@@ -123,6 +123,10 @@ section[id] {
     animation: none;
     opacity: 0;
   }
+}
+
+p {
+  text-wrap: pretty;
 }
 
 a {

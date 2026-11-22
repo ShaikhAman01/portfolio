@@ -148,7 +148,7 @@ export function ContactForm() {
               onBlur={() => setFocused(null)}
               maxLength={MAX_EMAIL}
               onChange={(e) => setEmailFilled(e.target.value.trim().length > 0)}
-              className="w-full border-b border-[var(--outline-variant)] bg-transparent py-2 text-base sm:text-xl outline-none transition focus:border-blue-700 dark:focus:border-emerald-400 disabled:opacity-50 rounded-none placeholder:text-zinc-400/50"
+              className="w-full border-b border-[var(--outline-variant)] bg-transparent py-2 text-base sm:text-xl outline-none transition focus:border-blue-700 dark:focus:border-emerald-400 disabled:opacity-50 rounded-none placeholder:text-[var(--outline)]"
               placeholder="jane@company.com"
             />
           </div>
@@ -170,7 +170,7 @@ export function ContactForm() {
                 setMessageLength(e.target.value.length);
                 setMessageFilled(e.target.value.trim().length > 0);
               }}
-              className="w-full resize-none border-b border-[var(--outline-variant)] bg-transparent py-2 text-base sm:text-xl outline-none transition focus:border-blue-700 dark:focus:border-emerald-400 disabled:opacity-50 rounded-none placeholder:text-zinc-400/50"
+              className="w-full resize-none border-b border-[var(--outline-variant)] bg-transparent py-2 text-base sm:text-xl outline-none transition focus:border-blue-700 dark:focus:border-emerald-400 disabled:opacity-50 rounded-none placeholder:text-[var(--outline)]"
               placeholder="System integration request..."
             />
           </div>

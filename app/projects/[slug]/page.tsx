@@ -97,12 +97,12 @@ export default async function ProjectPage({
               {project.longDescription}
             </p>
             
-            <div className="mt-8 sm:mt-12 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-8 sm:mt-12 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <a
                 href={project.sourceUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-black px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400"
+                className="bg-black whitespace-nowrap px-6 py-4 sm:px-8 sm:py-4 lg:px-5 text-center text-sm font-black tracking-[0.18em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400"
               >
                 VIEW_SOURCE &lt;/&gt;
               </a>
@@ -111,7 +111,7 @@ export default async function ProjectPage({
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
+                  className="border border-black bg-[var(--surface-container-lowest)] whitespace-nowrap px-6 py-4 sm:px-8 sm:py-4 lg:px-5 text-center text-sm font-black tracking-[0.18em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
                 >
                   LAUNCH_LIVE_APP →
                 </a>
@@ -121,7 +121,7 @@ export default async function ProjectPage({
                   href={project.docsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="border border-dashed border-blue-700 bg-blue-50/50 px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-blue-700 transition active:scale-[0.97] hover:bg-blue-700 hover:text-white dark:border-emerald-400 dark:bg-emerald-950/20 dark:text-emerald-400 dark:hover:bg-emerald-400 dark:hover:text-black"
+                  className="border border-dashed border-blue-700 bg-blue-50/50 whitespace-nowrap px-6 py-4 sm:px-8 sm:py-4 lg:px-5 text-center text-sm font-black tracking-[0.18em] text-blue-700 transition active:scale-[0.97] hover:bg-blue-700 hover:text-white dark:border-emerald-400 dark:bg-emerald-950/20 dark:text-emerald-400 dark:hover:bg-emerald-400 dark:hover:text-black"
                 >
                   EXPLORE_DOCS ▤
                 </a>
@@ -202,7 +202,7 @@ export default async function ProjectPage({
                     className="group relative border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-5 sm:p-6 transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:border-blue-700 dark:hover:border-emerald-400"
                   >
                     <div className="flex flex-col font-mono">
-                      <span className="text-[10px] font-bold tracking-widest text-[var(--outline)] uppercase group-hover:text-blue-700 dark:group-hover:text-emerald-400">
+                      <span className="text-[11px] font-bold tracking-widest text-[var(--outline)] uppercase group-hover:text-blue-700 dark:group-hover:text-emerald-400">
                         // {key.trim()}
                       </span>
                       <span className="mt-1 sm:mt-2 text-base sm:text-lg font-black tracking-wide uppercase break-words text-[var(--on-surface)]">
@@ -233,7 +233,7 @@ export default async function ProjectPage({
                 <ul className="mt-6 sm:mt-8 space-y-6 sm:space-y-8 text-[var(--on-surface-variant)]">
                   {project.challenges.map((item, i) => (
                     <li key={i} className="grid grid-cols-[85px_1fr] sm:grid-cols-[110px_1fr] gap-3 sm:gap-4 items-start break-words">
-                      <div className="font-mono text-[9px] sm:text-[10px] font-black text-blue-700 dark:text-emerald-400 pt-1">
+                      <div className="font-mono text-[11px] font-black text-blue-700 dark:text-emerald-400 pt-1">
                         <span>[ ERR_0{i + 1} ]</span>
                       </div>
                       <span className="text-sm sm:text-lg leading-relaxed">{item}</span>
@@ -256,7 +256,7 @@ export default async function ProjectPage({
                 <ul className="mt-6 sm:mt-8 space-y-6 sm:space-y-8 text-[var(--on-surface-variant)]">
                   {project.learnings.map((item, i) => (
                     <li key={i} className="grid grid-cols-[85px_1fr] sm:grid-cols-[110px_1fr] gap-3 sm:gap-4 items-start break-words">
-                      <div className="font-mono text-[9px] sm:text-[10px] font-black text-blue-700 dark:text-emerald-400 pt-1">
+                      <div className="font-mono text-[11px] font-black text-blue-700 dark:text-emerald-400 pt-1">
                         <span>[ LN_0{i + 1} ]</span>
                       </div>
                       <span className="text-sm sm:text-lg leading-relaxed">{item}</span>
@@ -285,14 +285,14 @@ export default async function ProjectPage({
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-shrink-0 w-full md:w-auto">
                 <Link
                   href="/#contact"
-                  className="bg-black px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 w-full sm:w-auto"
+                  className="bg-black whitespace-nowrap px-6 py-4 sm:px-8 sm:py-4 lg:px-5 text-center text-sm font-black tracking-[0.18em] text-white transition active:scale-[0.97] hover:bg-blue-700 dark:bg-white dark:text-black dark:hover:bg-emerald-400 w-full sm:w-auto"
                 >
                   INITIALIZE_DISCUSSION →
                 </Link>
 
                 <Link
                   href="/#projects"
-                  className="border border-black bg-[var(--surface-container-lowest)] px-6 py-4 sm:px-8 sm:py-4 text-center text-sm font-black tracking-[0.18em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto"
+                  className="border border-black bg-[var(--surface-container-lowest)] whitespace-nowrap px-6 py-4 sm:px-8 sm:py-4 lg:px-5 text-center text-sm font-black tracking-[0.18em] text-black transition active:scale-[0.97] hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto"
                 >
                   RETURN_TO_INDEX
                 </Link>
