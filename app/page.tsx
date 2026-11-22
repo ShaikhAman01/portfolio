@@ -28,13 +28,12 @@ export default function Home() {
                 <span className="h-3.5 w-3.5 rounded-full bg-emerald-400" />
               </div>
 
-              {/* Demoted below the headline on phones so the CTA clears the fold */}
-              <div className="order-3 w-full overflow-x-auto scrollbar-none sm:order-2">
+              <div className="order-3 w-full overflow-x-auto scrollbar-none">
                 <HeroCode />
               </div>
 
               {/* Terminal Panel Split Grid Frame */}
-              <div className="order-2 border border-[var(--outline-variant)] sm:order-3 sm:mt-10">
+              <div className="order-2 border border-[var(--outline-variant)]">
                 <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_0.9fr]">
                   {/* LEFT PANE: Typography & Action Handles */}
                   <MotionDiv
@@ -148,7 +147,7 @@ export default function Home() {
 
                         <div className="flex justify-between">
                           <span>LOCATION</span>
-                          <span>HYDERABAD</span>
+                          <span>INDIA</span>
                         </div>
                       </div>
                     </div>
