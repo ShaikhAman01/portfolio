@@ -25,7 +25,7 @@ export function StickyCTA() {
     };
 
     // Retract the bar once the contact section is near, so it never covers
-    // the form it points at — or the footer that follows it.
+    // the form it points at or the footer that follows it.
     const observer = new IntersectionObserver(
       ([entry]) => {
         atContact = entry.isIntersecting;
@@ -53,7 +53,7 @@ export function StickyCTA() {
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-x-0 bottom-0 z-[60] border-t border-[var(--outline-variant)] bg-[var(--surface-container-lowest)]/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:hidden"
+          className="fixed inset-x-0 bottom-0 z-[60] border-t border-[var(--outline-variant)] bg-[color-mix(in_srgb,var(--surface-container-lowest)_95%,transparent)] pb-[env(safe-area-inset-bottom)] backdrop-blur sm:hidden"
         >
           <div className="flex items-stretch gap-3 px-4 py-3">
             <Link

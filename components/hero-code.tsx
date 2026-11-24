@@ -22,7 +22,7 @@ export function HeroCode() {
       variants={container}
       initial="hidden"
       animate="show"
-      className="mt-8 sm:mt-10 mb-0 w-full overflow-x-hidden whitespace-normal rounded-lg bg-zinc-50/50 p-4 sm:p-6 font-mono text-xs xs:text-sm sm:text-base font-semibold leading-6 xs:leading-7 sm:leading-9 md:text-xl md:leading-10 tracking-normal text-[var(--on-surface)] dark:bg-zinc-900/30 border border-[var(--outline-variant)]/30"
+      className="mt-8 sm:mt-10 mb-0 w-full overflow-x-hidden whitespace-normal rounded-lg bg-zinc-50/50 p-4 sm:p-6 font-mono text-xs xs:text-sm sm:text-base font-semibold leading-6 xs:leading-7 sm:leading-9 md:text-xl md:leading-10 tracking-normal text-[var(--on-surface)] dark:bg-zinc-900/30 border border-[var(--outline-variant)]"
     >
       <code className="block select-text w-full">
         {/* Declaration Line */}

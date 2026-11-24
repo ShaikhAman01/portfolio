@@ -70,7 +70,7 @@ export function Header({ active = "" }: { active?: string }) {
   }, [active, pathname]); // Added pathname listener rule 
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[var(--outline-variant)] bg-[var(--surface-container-lowest)]/95 backdrop-blur dark:border-[var(--outline-variant)] dark:bg-[var(--surface-container-lowest)]/95">
+    <header className="sticky top-0 z-50 w-full border-b border-[var(--outline-variant)] bg-[color-mix(in_srgb,var(--surface-container-lowest)_95%,transparent)] backdrop-blur">
       <div className="mx-auto flex w-full max-w-[105rem] items-center justify-between gap-3 px-4 py-4 sm:gap-4 md:gap-6 md:px-8">
 
         <Link href="/" className="min-w-0 truncate text-xl font-black tracking-tight sm:text-2xl md:text-4xl whitespace-nowrap">
@@ -126,7 +126,7 @@ export function Header({ active = "" }: { active?: string }) {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle navigation menu"
             aria-expanded={isMenuOpen}
-            className="flex items-center justify-center border border-[var(--outline-variant)] h-12 w-12 text-[var(--on-surface)] transition-colors hover:bg-[var(--outline-variant)]/20 lg:hidden flex-shrink-0"
+            className="flex items-center justify-center border border-[var(--outline-variant)] h-12 w-12 text-[var(--on-surface)] transition-colors hover:bg-[color-mix(in_srgb,var(--outline-variant)_20%,transparent)] lg:hidden flex-shrink-0"
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>

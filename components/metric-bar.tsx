@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function MetricBar({ delay = 0 }: { delay?: number }) {
   return (
-    <div className="mt-6 sm:mt-8 h-[2px] w-full bg-[var(--outline-variant)]/30">
+    <div className="mt-6 sm:mt-8 h-[2px] w-full bg-[color-mix(in_srgb,var(--outline-variant)_30%,transparent)]">
       <motion.div
         initial={{ transform: "scaleX(0)" }}
         whileInView={{ transform: "scaleX(1)" }}
