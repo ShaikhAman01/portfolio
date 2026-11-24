@@ -13,9 +13,9 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/shaikhaman01",
   x: "https://x.com/shaikhaman01",
   heroDescription:
-    "Backend-leaning fullstack developer building reliable web systems — clean APIs, production-minded data models, and fast user interfaces.",
+    "Backend-leaning fullstack developer building reliable web systems: clean APIs, production-minded data models, and fast user interfaces.",
   contactDescription:
-    "Open to backend, fullstack, and product engineering roles. If you're hiring — or just want to talk through one of these systems — my inbox is open."
+    "Open to backend, fullstack, and product engineering roles. If you're hiring, or just want to talk through one of these systems, my inbox is open."
 };
 
 export const heroStack = ["Next.js", "React", "Node.js", "PostgreSQL"];
@@ -27,7 +27,7 @@ export const projects = [
     version: "v1.0.0",
     status: "AI_SQL_AGENT",
     description:
-      "An AI data assistant that turns plain-English questions into safe, validated SQL. Connects to five database engines, executes everything read-only, and returns charts plus insights grounded in real statistics — never hallucinated numbers.",
+      "An AI data assistant that turns plain-English questions into validated SQL. Works with five database engines, accepts only SELECT queries, and returns charts plus insights based on statistics the server computes.",
     longDescription:
       "A Next.js + FastAPI platform that lets non-technical users query relational databases in plain English, built on a template-first SQL pipeline with an OpenAI-to-Gemini fallback and layered safety checks.",
     tags: ["NEXT.JS", "FASTAPI", "POSTGRESQL", "AI_PIPELINE"],
@@ -41,7 +41,7 @@ export const projects = [
     docsUrl: "https://app.notion.com/p/amanshaikh/PROJECT_DOCUMENTATION-39326719f3cc803ab075e9aa5d23696d",
     metrics: [
       ["DB_ENGINES", "5"],
-      ["EXECUTION", "READ_ONLY"],
+      ["EXECUTION", "SELECT_ONLY"],
       ["SQL_GEN", "TEMPLATE+LLM"],
       ["CACHING", "TTL+LRU"]
     ],
@@ -54,13 +54,13 @@ export const projects = [
       "NLP:SPACY"
     ],
     about: [
-      "IntelliQuery lets people who can't write SQL still get answers from a database. Connect PostgreSQL, MySQL, SQL Server, SQLite, or CockroachDB, ask something like \"top 10 customers by revenue last month\", and get validated SQL, live results, a chart, and an AI summary grounded in real statistics.",
-      "Common questions are answered by a deterministic template engine with zero LLM tokens; the rest go through a schema-aware LLM chain (OpenAI with Gemini fallback). Every query passes a SELECT-only validator and runs in a read-only transaction with timeouts and row caps."
+      "IntelliQuery lets people who can't write SQL still get answers from a database. Connect PostgreSQL, MySQL, SQL Server, or CockroachDB, or start with the built-in SQLite sample. Ask something like \"top 10 customers by revenue last month\" and get validated SQL, live results, a chart, and an AI summary based on statistics the server computes.",
+      "SQL for common questions comes from a deterministic template engine with no LLM call; the rest goes through a schema-aware LLM chain (OpenAI with Gemini fallback). Every query passes a SELECT-only validator, returns a capped number of rows, and is rolled back. PostgreSQL, CockroachDB, and MySQL also enforce a read-only transaction and a timeout."
     ],
     challenges: [
       "Containing hallucination: prompts are grounded in the real schema, and a repair pass fixes queries that reference tables or columns that don't exist.",
       "One auth across two runtimes: Better Auth creates sessions in Next.js, and FastAPI validates the same tokens against a shared PostgreSQL.",
-      "Cache correctness: schema changes invalidate cached SQL, failing queries evict themselves, and empty results are never cached."
+      "Cache correctness: refreshing a schema evicts cached SQL, failing queries evict themselves, and empty results are never cached."
     ],
     learnings: [
       "Trustworthy AI features need verification around the model, not just better prompts.",
@@ -74,9 +74,9 @@ export const projects = [
     version: "v1.0.0",
     status: "EDGE_ARCADE",
     description:
-      "A full-stack browser arcade — six mini-games plus a lofi chill mode — backed by Cloudflare Workers and D1. Guest-first auth and server-validated scores with per-game plausibility checks and rate limits.",
+      "A full-stack browser arcade with six mini-games and a lofi chill mode, backed by Cloudflare Workers and D1. Guest-first auth and server-validated scores with per-game plausibility checks and rate limits.",
     longDescription:
-      "Six single-player games with a real edge backend: Hono on Cloudflare Workers, D1 (SQLite) with Drizzle ORM, JWT auth, and Zod-validated score submission. Every game works fully offline.",
+      "Six single-player games with a real edge backend: Hono on Cloudflare Workers, D1 (SQLite) with Drizzle ORM, JWT auth, and Zod-validated score submission. Once loaded, every game keeps working offline.",
     tags: ["NEXT.JS", "CLOUDFLARE_WORKERS", "HONO", "D1_SQLITE"],
     image: "/images/pixelplayground.webp",
     darkImage: "/images/pixelplayground.webp",
@@ -102,7 +102,7 @@ export const projects = [
     ],
     about: [
       "PixelPlayground looks like a cozy game site, but the engineering is underneath. There is no login wall: a guest account is created silently on first visit, and upgrading to a real account later keeps every score, stat, and streak.",
-      "Scoring is server-authoritative. The Worker validates each submission against per-game plausibility rules, computes streaks itself so they can't be faked, and keeps leaderboards as simple indexed queries."
+      "Scores are validated on the server. The Worker checks each submission against per-game bounds, counts wins and streaks itself instead of accepting totals, and keeps leaderboards as simple indexed queries."
     ],
     challenges: [
       "bcrypt blew through the Workers CPU budget, so password hashing moved to PBKDF2 via the WebCrypto API.",
@@ -121,7 +121,7 @@ export const projects = [
     version: "v1.0.0",
     status: "BLOG_PLATFORM",
     description:
-      "A Medium-style blogging platform with public reading, a rich-text editor, tags, likes, comments, cursor pagination, and one-click AI post summaries — served from Cloudflare's edge.",
+      "A Medium-style blogging platform with public reading, a rich-text editor, tags, likes, comments, cursor pagination, and one-click AI post summaries, served from Cloudflare's edge.",
     longDescription:
       "A React SPA backed by Hono on Cloudflare Workers, PostgreSQL via Prisma Accelerate, and JWT auth, with a shared Zod schema package published to npm.",
     tags: ["REACT", "HONO", "CLOUDFLARE", "PRISMA"],

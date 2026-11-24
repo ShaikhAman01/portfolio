@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "18 SEP 2026";
+const LAST_UPDATED = "24 NOV 2026";
 
 function Block({
   id,
@@ -65,13 +65,13 @@ export default function PrivacyPage() {
         <SectionTitle icon={ShieldCheck}>PRIVACY_POLICY</SectionTitle>
 
         <p className="-mt-4 mb-12 font-mono text-xs font-black tracking-[0.18em] text-[var(--outline)] sm:text-sm">
-          LAST_UPDATED: {LAST_UPDATED} — READ_TIME: 90s
+          LAST_UPDATED: {LAST_UPDATED} | READ_TIME: 90s
         </p>
 
         <div className="mb-12 border border-[var(--outline-variant)] bg-[var(--surface-container-lowest)] p-6 shadow-[6px_6px_0_rgba(0,0,0,0.04)] sm:p-8">
           <p className="text-base leading-7 text-[var(--on-surface-variant)] sm:text-lg sm:leading-8">
             <span className="font-black text-[var(--on-surface)]">
-              TL;DR —
+              TL;DR:
             </span>{" "}
             it&rsquo;s a portfolio. There is no growth team here, no data
             warehouse, and nobody A/B testing the colour of a button at you. If
@@ -117,12 +117,17 @@ export default function PrivacyPage() {
           <Block id="03" title="COOKIES_AND_LOCAL_STORAGE">
             <p>
               This site sets zero cookies. It writes exactly one thing to your
-              browser&rsquo;s local storage —
+              browser&rsquo;s local storage,{" "}
               <code className="font-mono text-[var(--on-surface)]">
                 dev-core-theme
-              </code>{" "}
-              — so that if you picked dark mode, it stays picked. It never leaves
-              your machine. Clear your site data and it is gone, along with my
+              </code>
+              , so that if you picked dark mode, it stays picked. A flag in
+              session storage,{" "}
+              <code className="font-mono text-[var(--on-surface)]">
+                dev-core-booted
+              </code>
+              , plays the boot screen once per tab and goes when you close it.
+              Neither leaves your machine. Clear your site data and it is gone, along with my
               one attempt to remember anything about you.
             </p>
             <p>
@@ -157,7 +162,7 @@ export default function PrivacyPage() {
               Contact emails stay in my inbox for as long as the conversation is
               alive, and get deleted when it obviously is not. Analytics are
               aggregate, kept on a rolling window by the platform, and cannot be
-              traced back to you even if I wanted to — which, again, I do not.
+              traced back to you even if I wanted to. Which, again, I do not.
             </p>
           </Block>
 
@@ -179,7 +184,7 @@ export default function PrivacyPage() {
                 {profile.email}
               </a>
               <br />
-              {profile.name} — {profile.location}
+              {profile.name}, {profile.location}
             </p>
             <p className="text-sm text-[var(--outline)]">
               // If you read this far, you are the first. Mention it and I will

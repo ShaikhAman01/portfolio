@@ -25,7 +25,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} — ${project.status.replaceAll("_", " ")}`,
+    title: `${project.title}: ${project.status.replaceAll("_", " ")}`,
     description: project.description,
     alternates: { canonical: `/projects/${project.slug}` },
     openGraph: {

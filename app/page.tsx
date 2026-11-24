@@ -294,7 +294,7 @@ export default function Home() {
             {profile.contactDescription}
           </p>
 
-          {/* Direct channels — no form required */}
+          {/* Direct channels, no form required */}
           <div className="mt-6 flex flex-wrap gap-3 font-mono text-xs">
             <CopyEmailChip email={profile.email} />
             {[
